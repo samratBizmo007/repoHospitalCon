@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="login" style="background-position: center;">
+<body class="login" style="background-image: url('<?php echo base_url(); ?>assets/imgs/userhosp1.jpg');">
   <div>
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>

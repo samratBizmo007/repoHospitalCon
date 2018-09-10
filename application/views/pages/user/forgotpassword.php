@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="login" style="background-position: center;">
+<body class="login" style="background-image: url('<?php echo base_url(); ?>assets/imgs/userhosp1.jpg');">
   <div>
     <div class="login_wrapper ">
       <div class="animate form login_form w3-padding">
