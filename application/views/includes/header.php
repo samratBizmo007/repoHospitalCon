@@ -1,11 +1,6 @@
 <?php
 //start session     
 $admin_name = $this->session->userdata('admin_name');
-$session_name = '';
-if ($admin_name != '') {
-    $sessionArr = explode('|', $admin_name);
-    $session_name = $sessionArr[1];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,13 +29,7 @@ if ($admin_name != '') {
         <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/dhtmlxcalendar.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/dhtmlxcalendar_deprecated.js"></script>
-
-
-
     </head>
-
-
-
 </head>
 
 <body class="nav-md">
@@ -50,12 +39,10 @@ if ($admin_name != '') {
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
                         <a href="<?php echo base_url(); ?>admin/dashboard" class="site_title" style="padding-left: 15px">
-                            <i class="fa fa-circle-o w3-orange w3-padding-tiny w3-text-white" style="text-shadow: 2px 2px #ff0000;border-radius: 0;"></i> Swan Industries
+                            <i class="fa fa-plus-circle w3-text-red"></i> Hospital Dash
                         </a>
                     </div>
-
                     <div class="clearfix"></div>
-
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
@@ -181,7 +168,7 @@ if ($admin_name != '') {
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    Welcome <b><?php echo $session_name; ?> </b>
+                                    Welcome <b><?php echo $admin_name; ?> </b>
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -192,7 +179,7 @@ if ($admin_name != '') {
                                         </a>
                                     </li>
                                     <li><a href="javascript:;">Help</a></li>
-                                    <li><a href="<?php echo base_url(); ?>login/logoutAdmin"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    <li><a href="<?php echo base_url(); ?>admin/admin_login/logoutAdmin"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                 </ul>
                             </li>
 
