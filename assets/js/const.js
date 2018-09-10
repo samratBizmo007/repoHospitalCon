@@ -1,1 +1,1 @@
- var BASE_URL = 'http://localhost/repoHospitalCon/';
+ var BASE_URL = 'http://localhost/reposwan/';
