@@ -177,8 +177,8 @@
                                                 cache: false,
                                                 success: function (data) {
                                                     // alert(data);
-                                                    //$.alert(data);
-                                                    $('#message').html(data);
+                                                    $.alert(data);
+                                                    //$('#message').html(data);
                                                 }
                                             });
                                         },
