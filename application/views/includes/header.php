@@ -49,10 +49,16 @@ $admin_name = $this->session->userdata('admin_name');
                             <!-- <h3>General</h3> -->
                             <ul class="nav side-menu">
                                 <li><a href="<?php echo base_url(); ?>admin/dashboard" class="w3-text-black"><i class="fa fa-dashboard"></i> Dashboard </a></li>
-                                 <li><a class="w3-text-black"><i class="fa fa-cubes"></i> Doctor Section <span class="fa fa-chevron-down"></span></a>
+                                 <li><a class="w3-text-black"><i class="fa fa-user-md"></i> Doctor Section <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>admin/adddoctor" class="w3-text-black">Add Doctor</a></li>
                                         <li><a href="<?php echo base_url(); ?>admin/viewdoctors" class="w3-text-black">View Doctors</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="w3-text-black"><i class="fa fa-hospital-o"></i> Organ Section <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo base_url(); ?>admin/addorgan">Add Organ Details</a></li>
+                                        <li><a href="<?php echo base_url(); ?>admin/vieworgans">View All Organs</a></li>
                                     </ul>
                                 </li>
                                 <!-- <li><a href="<?php echo base_url(); ?>admin/machine/addmachine"><i class="fa fa-sliders"></i> Machine Section </a>
@@ -60,12 +66,7 @@ $admin_name = $this->session->userdata('admin_name');
                                 <li><a href="<?php echo base_url(); ?>employee/employee"><i class="fa fa-user"></i> Employee Section </a>
 
                                 </li>
-                                <li><a><i class="fa fa-cube"></i> Product Section <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="<?php echo base_url(); ?>admin/products/addproduct">Add New Product</a></li>
-                                        <li><a href="<?php echo base_url(); ?>admin/products/allproduct">View All Products</a></li>
-                                    </ul>
-                                </li>
+                                
                                 <li><a><i class="fa fa-list"></i> Inventory Section <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>inventory/showinventory">View Inventory</a></li>
