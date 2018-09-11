@@ -15,16 +15,11 @@ class Login extends CI_Controller {
 		$this->load->view('pages/user/login');
 	}
 
-	// ----------------------User lof=gin code starts here-------------------//
+	// ----------------------User login code starts here-------------------//
 	public function verifyUser() {
 		extract($_POST);
-
-		//print_r($_POST);die();
-        //Connection establishment, processing of data and response from REST API   
-
 		$this->load->model('user/user_model');
 		$result = $this->user_model->verifyUser($user_email, $user_passwd);
-		//print_r($result);die();
 
 		if ($result) {
         	//----create session array--------//
@@ -36,7 +31,7 @@ class Login extends CI_Controller {
 			$this->session->set_userdata($session_data);
 
 			echo '<div class="alert alert-success">
-			<strong>Login Sucess</strong> 
+			Login Sucess 
 			</div>
 			<script>
 			window.setTimeout(function() {
@@ -47,26 +42,70 @@ class Login extends CI_Controller {
 					}, 500);
 					</script>
 					';
-			} 
-			else {
+				} 
+				else {
 					echo '<div class="alert alert-danger">
-					<strong>Login Credentials are incorrect!</strong> 
+					Login Credentials are incorrect! 
 					</div>      
 					';
 				}
 			}
 		// ---------------admin login fucntion ends here--------------------//
 
+	// ----------------------User login code starts here-------------------//
+			public function registerUser() {
+				$data=$_POST;
+				extract($data);
+
+				$this->load->model('user/user_model');
+
+		// check email already exist or not
+				$checkEmail = $this->user_model->checkEmail($reg_mail);
+				if($checkEmail){
+					$result = $this->user_model->registerUser($data);
+
+					if ($result) {
+						
+						echo '<div class="alert alert-success">
+						Registration Sucessfull. 
+						</div>
+						<script>
+						window.setTimeout(function() {
+							$(".alert").fadeTo(500, 0).slideUp(500, function(){
+								$(this).remove(); 
+								});
+								window.location.href="'.base_url().'";
+								}, 1000);
+								</script>
+								';
+							} 
+							else {
+								echo '<div class="alert alert-danger">
+								Registration failed! 
+								</div>      
+								';
+							}
+						}
+						else{
+							echo '<div class="alert alert-danger">
+							Email-ID already registered! Try Login. 
+							</div>      
+							';
+						}
+
+					}
+	// ---------------admin login fucntion ends here--------------------//
+
 		// -------------------admin logout fucntion starts here---------------//
-			public function logout() {
-				$admin_name=$this->session->userdata('admin_name');
+					public function logout() {
+						$user_session=$this->session->userdata('user_session');
 
         //if logout success then destroy session and unset session variables
-				$this->session->unset_userdata(array("admin_name" => ""));
-				$this->session->sess_destroy();
+						$this->session->unset_userdata(array("user_session" => ""));
+						$this->session->sess_destroy();
 
-				redirect('admin/mea_admin');
-			}
+						redirect('admin/mea_admin');
+					}
 
     //----------function for admin registerd user------------------//
-		}
+				}
