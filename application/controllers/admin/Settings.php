@@ -8,9 +8,9 @@ class Settings extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-        $this->load->model('admin/Settings_model');
+        $this->load->model('admin/Settings_model'); //-------load the setting model
         //start session		
-        $admin_name = $this->session->userdata('admin_name');
+        $admin_name = $this->session->userdata('admin_name'); //----------admin session variable
         if ($admin_name == '') {
             redirect('admin/admin_login');
         }
@@ -18,7 +18,7 @@ class Settings extends CI_Controller {
 
     // main index function
     public function index() {
-        $data['adminDetails'] = Settings::getAdminDetails();
+        $data['adminDetails'] = Settings::getAdminDetails(); //------get admin details
         // print_r($data);
         $this->load->view('includes/header');
         $this->load->view('pages/admin/settings', $data);
@@ -32,6 +32,7 @@ class Settings extends CI_Controller {
         return $response;
     }
 
+//-------------------fun ends here-------------------------------------------//
     //----------this function to update admin email-----------------------------//
     public function updateEmail() {
         extract($_POST);
@@ -83,8 +84,6 @@ class Settings extends CI_Controller {
 			});
 			}, 5000);
 			</script>';
-           // echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> ' . $response['status_message'] . '</h4>
-    //';
         } else {
             echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -98,12 +97,6 @@ class Settings extends CI_Controller {
 			}, 2000);
                         location.reload();
 			</script>';
-//            echo '<h4 class="w3-text-black w3-margin"><i class="fa fa-check"></i> ' . $response['status_message'] . '</h4>
-//    <script>
-//    window.setTimeout(function() {
-//     location.reload();
-//   }, 1000);
-//   </script>';
         }
     }
 
