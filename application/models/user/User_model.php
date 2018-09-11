@@ -6,7 +6,7 @@ class User_model extends CI_Model {
         parent::__construct();
         //$this->load->model('admin_model/settings_model');
     }
-        
+
     // -----------------------USER LOGIN ----------------------//
     //-------------------------------------------------------------//
     public function verifyUser($user_email, $password) {
@@ -25,34 +25,51 @@ class User_model extends CI_Model {
     }
     //----------------------------LOGIN END------------------------------//
 
+    //-----------function for add skill in db-----------//
+    public function registerUser($data)
+    {
+        extract($data);
+        $sql = "INSERT INTO users_tab(user_name,user_addr,user_num,user_password,user_email) VALUES ('$user_name','$user_addr','$user_number','$reg_passwd','$reg_mail')";
 
+        if ($this->db->query($sql)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
-    //-------------------------------------------------------------------------
-    public function getMemberDetails(){
-        $response = array();
-        $querynew = "SELECT * FROM users_tab";
+    
+    // check email already exist or not
+    public function checkEmail($email){
+        $querynew = "SELECT * FROM users_tab WHERE user_email='$email'";
         $query = $this->db->query($querynew);
-        // Select record
-        
-        if ($query->num_rows() <= 0) {
-            $response = array(
-                'status' => 500,
-                'countSum' => 0,
-                'status_message' => 'No records Found.');
-        } else {
 
-            $countQuery = "SELECT * FROM users_tab WHERE checkin=1";
-            $count = $this->db->query($countQuery);
-            $countSum=$count->num_rows();
-            $response = array(
-                'status' => 200,
-                'countSum' => $countSum,
-                'status_message' => $query->result_array()
-            );
+        // if no record found then return true
+        if ($query->num_rows() <= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // funtion ends here
+
+    //-----------------------get password of user by email-------------------------
+    public function getPassword($email){
+        $querynew = "SELECT * FROM users_tab WHERE user_email='$email'";
+        $query = $this->db->query($querynew);
+
+    // if no record found then return false
+        if ($query->num_rows() <= 0) {
+            return false;
+        } else {
+            foreach ($query->result_array() as $key) {
+                return $key['user_password'];
+            }
         }
         return $response;
     }
-    //-------------this fun is used to get all detials of members----------------//
+    //-------------function ends----------------//
 
      //-------------------------------------------------------------------------
     public function getMemberDetailsCsv(){
@@ -60,24 +77,24 @@ class User_model extends CI_Model {
         $querynew = "SELECT * FROM users_tab";
         $query = $this->db->query($querynew);
         // Select record
-        
+
         if ($query->num_rows() <= 0) {
             $response = array(
                 'status' => 500,
                 'status_message' => 'No records Found.');
         } 
         else {
-         $data=array();
-         foreach ($query->result_array() as $key) {
+           $data=array();
+           foreach ($query->result_array() as $key) {
             $valid_date = date( 'd M, Y', strtotime($key['dated']));
             $food='VEG';
-                $checked='---';
-                if($key['foodPreference']=='nveg' && $key['foodPreference']!=''){
-                    $food='NON-VEG';
-                }
-                if($key['checkin']=='1'){
-                    $checked='Checked In';
-                }
+            $checked='---';
+            if($key['foodPreference']=='nveg' && $key['foodPreference']!=''){
+                $food='NON-VEG';
+            }
+            if($key['checkin']=='1'){
+                $checked='Checked In';
+            }
             $data[]=array(
                 'member_name'   =>  $key['member_name'],
                 'gender'   =>  $key['gender'],
