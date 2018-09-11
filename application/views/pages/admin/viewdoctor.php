@@ -8,6 +8,8 @@
             <h3><i class="fa fa-user"></i> All Doctors</h3>
         </div>
     </div>
+                                                    <div id="messageinfo"></div>
+
     <div class="row clearfix" style=" margin-top: 5px;">
         <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12"    >
             <table class="table table-responsive" id="tab_logic">
@@ -177,8 +179,8 @@
                                                 cache: false,
                                                 success: function (data) {
                                                     // alert(data);
-                                                    $.alert(data);
-                                                    //$('#message').html(data);
+                                                    //$.alert(data);
+                                                    $('#messageinfo').html(data);
                                                 }
                                             });
                                         },

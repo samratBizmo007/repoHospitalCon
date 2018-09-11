@@ -75,14 +75,31 @@ class Viewdoctors extends CI_Controller {
         $result = $this->Doctor_model->deleteDoctorDetails($doc_id);
         //print_r($result);die();
         if ($result == 200) {
-            echo '<h4 class="w3-text-black w3-margin"><i class="fa fa-check"></i> Doctor Details Updated Successfully.</h4>
-             <script>
-            window.setTimeout(function() {
-               location.reload();
-               }, 1000);
-               </script>';
+           echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> Doctor Details Deleted SuccessFully.
+			</div>
+			<script>
+			window.setTimeout(function() {
+			$(".alert").fadeTo(500, 0).slideUp(500, function(){
+			$(this).remove();
+			});
+			}, 5000);
+                                                location.reload();
+
+			</script>';
         } else {
-            echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Doctor Details Not Updated Successfully.</h4>';
+            echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Warning!</strong> Doctor Details Not Deleted SuccessFully.
+			</div>
+			<script>
+			window.setTimeout(function() {
+			$(".alert").fadeTo(500, 0).slideUp(500, function(){
+			$(this).remove(); 
+			});
+			}, 5000);
+			</script>';
         }
     }
 
