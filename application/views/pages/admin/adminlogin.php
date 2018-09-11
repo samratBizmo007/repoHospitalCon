@@ -70,7 +70,7 @@
                         if (data == 200) {
                             $('#message').html('<p class="w3-green w3-padding-small">Login Successfull! Welcome Admin.</p>');
                             $('#btnSubmit').html('<span class=""><b>Submit</b></span>');
-                            alert(BASE_URL + 'admin/dashboard');
+                            //alert(BASE_URL + 'admin/dashboard');
                             window.location.href = BASE_URL + 'admin/dashboard';
                         } else {
                             $('#message').html(data);
