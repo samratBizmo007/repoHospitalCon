@@ -48,7 +48,7 @@ $admin_name = $this->session->userdata('admin_name');
                         <div class="menu_section">
                             <!-- <h3>General</h3> -->
                             <ul class="nav side-menu">
-                                <li><a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard </a></li>
+                                <li><a href="<?php echo base_url(); ?>admin/dashboard" class="w3-text-black"><i class="fa fa-dashboard"></i> Dashboard </a></li>
                                 <!-- <li><a><i class="fa fa-cubes"></i> Raw Material Section <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>materials/addmaterial">Add New Material</a></li>
