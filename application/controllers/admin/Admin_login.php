@@ -15,20 +15,18 @@ class Admin_login extends CI_Controller {
     // main index function
     public function index() {
         // start session		
-        $admin_name = $this->session->userdata('admin_name');
+        $admin_name = $this->session->userdata('admin_name'); //----session variable
         if ($admin_name != '') {
             redirect('admin/dashboard');
         }
-        //$this->load->view('includes/header');
-        $this->load->view('pages/admin/adminlogin');
-        //$this->load->view('includes/footer');
+        $this->load->view('pages/admin/adminlogin'); //------loading the admin login view
     }
 
     // check login authentication-----------------------------------------------------------
     public function checkLogin() {
         extract($_POST);
         //print_r($_POST);
-       // die();
+        // die();
         $result = $this->Adminlogin_model->authenticate($username, $password);
 
         // print valid message

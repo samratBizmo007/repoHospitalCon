@@ -29,7 +29,7 @@
                         <input type="email" name="admin_email" value="<?php echo $adminDetails['status_message'][2]['value']; ?>" placeholder="Enter Email-ID here..." id="admin_email" class="w3-input" required>
                     </div>
                     <div class="w3-col l4">
-                        <button type="submit" class="w3-button theme_bg">Update Email-ID</button>
+                        <button type="submit" class="w3-button w3-orange">Update Email-ID</button>
                     </div>
                 </form>
             </div>
@@ -44,7 +44,7 @@
                         <input type="text" name="admin_pass" value="<?php echo $adminDetails['status_message'][1]['value']; ?>" placeholder="Enter Password here..." id="admin_pass" class="w3-input" required>
                     </div>
                     <div class="w3-col l4">
-                        <button type="submit" class="w3-button theme_bg">Update Password</button>
+                        <button type="submit" class="w3-button w3-orange">Update Password</button>
                     </div>
                 </form>
             </div>
