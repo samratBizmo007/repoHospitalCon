@@ -34,7 +34,8 @@ class Add_hospital extends CI_Controller {
     public function addHospitalDetails() {
           extract($_POST);
           $data=$_POST;
-            if ($hospital_location == 0) {
+          //print_r($data);die();
+            if ($hospital_location == '0') {
             echo '<div class="alert alert-warning alert-dismissible fade in alert-fixed w3-round">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Warning!</strong> Please Select Valid Hospital location.
@@ -48,7 +49,7 @@ class Add_hospital extends CI_Controller {
             </script>';
             die();
         }
-          // print_r($_POST);die();
+        // print_r($_POST);die();
         // $response = $this->Hospital_model->addHospitalDetails($data);
          // print_r($response);die();
          $result = $this->Hospital_model->addHospitalDetails($data);

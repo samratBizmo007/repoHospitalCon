@@ -16,24 +16,25 @@ class View_hospitals extends CI_Controller {
             redirect('admin/admin_login');
         }
     }
-      // main index function
+
+    // main index function
     public function index() {
         $data['HospitalDetails'] = View_hospitals::getHospitalDetails();
-          $data['locations'] = View_hospitals::getAllHospitalLocation();
+        $data['locations'] = View_hospitals::getAllHospitalLocation();
         $this->load->view('includes/header');
-        $this->load->view('pages/admin/view_hospitals',$data);
+        $this->load->view('pages/admin/view_hospitals', $data);
         $this->load->view('includes/footer');
     }
 
-     //----------this function to get Hospital details-----------------------------
+    //----------this function to get Hospital details-----------------------------
     public function getHospitalDetails() {
         $response = $this->Hospital_model->getHospitalDetails();
         // print_r($response_json);die();
         return $response;
     }
 
-  // --------function for get hospital location
-     public function getAllHospitalLocation() {
+    // --------function for get hospital location
+    public function getAllHospitalLocation() {
         $result = $this->Hospital_model->getAllHospitalLocation();
         return $result;
     }
@@ -41,8 +42,10 @@ class View_hospitals extends CI_Controller {
 //--------function for update hospital details
     public function updateHospitalDetails() {
         extract($_POST);
-        // print_r($_POST);
-        //die();
+        if ($hospital_location == '0') {
+            echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Please Select Valid Hospital Location.</h4>';
+            die();
+        }
         $data = $_POST;
         $result = $this->Hospital_model->updateHospitalDetails($data);
         // print_r($result);die();
@@ -58,7 +61,7 @@ class View_hospitals extends CI_Controller {
         }
     }
 
-     public function deleteHospitalDetails() {
+    public function deleteHospitalDetails() {
         extract($_POST);
         $result = $this->Hospital_model->deleteHospitalDetails($hosp_id);
         //print_r($result);die();
@@ -89,4 +92,5 @@ class View_hospitals extends CI_Controller {
             </script>';
         }
     }
+
 }
