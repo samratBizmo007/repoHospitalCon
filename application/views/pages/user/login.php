@@ -55,10 +55,10 @@
               </p>
               <p class="change_link">
                <a href="<?php echo base_url(); ?>forgot_password" class="to_register" >Lost your password?</a>
-              </p>
+             </p>
 
-              <div class="clearfix"></div>
-              <br />
+             <div class="clearfix"></div>
+             <br />
 <!-- 
               <div>
                 <h1><i class="fa fa-circle-o w3-orange w3-padding-tiny w3-text-white" style="text-shadow: 2px 2px #ff0000;"></i> Swan Industries</h1>
@@ -70,23 +70,27 @@
 
       <div id="userRegistration" class="animate form registration_form w3-padding">
         <section class="login_content w3-padding w3-white w3-text-grey w3-card-2">
-          <form >
+          <form id="registration_form">
             <h1> Register </h1>
             <h6>Get registered to access all the benefits of Hospital Connect Project!</h6>
+            <div id="register_message"></div>
             <div>
-              <input type="email" class="form-control" placeholder="Enter email-ID here..." required>
+              <input type="text" name="user_name" class="form-control" placeholder="Enter Full name here..." required>
             </div>
             <div>
-              <input type="email" class="form-control" placeholder="Enter email-ID here..." required>
+              <input type="number" name="user_number" class="form-control" placeholder="Enter contact number here..." required>
             </div>
             <div>
-              <input type="email" class="form-control" placeholder="Enter email-ID here..." required>
+              <textarea class="form-control" placeholder="Enter address here..." name="user_addr" required></textarea>
             </div>
             <div>
-              <input type="email" class="form-control" placeholder="Enter email-ID here..." required>
+              <input type="email" name="reg_mail" class="form-control" placeholder="Enter email-ID here..." required>
+            </div>
+            <div>
+              <input type="password" name="reg_passwd" minlength="8" class="form-control" placeholder="Enter password here..." required>
             </div>              
             <div>
-              <button class="btn btn-primary btn-block" type="submit" disabled>Submit</button>
+              <button class="btn btn-primary btn-block" id="registerBtn" type="submit"><i class="fa fa-download"></i> Register Here</button>
             </div>
 
             <div class="clearfix"></div>
@@ -107,7 +111,6 @@
 
   <!-- Authenticate user script  -->
   <script>
-    // add new product
     $("#login_form").on('submit', function(e) {
      e.preventDefault(); 
      dataString = $("#login_form").serialize();
@@ -123,25 +126,53 @@
       success: function(data){
         $('#message').html(data);
         $('#loginBtn').html('<i class="fa fa-sign-in"></i> Login to Account');
-     //  window.setTimeout(function() {
-     //   $(".alert").fadeTo(500, 0).slideUp(500, function(){
-     //     $(this).remove(); 
-     //   });
-     //   window.location.reload();
-     // }, 1000);
-   },
-   error:function(data){
-     $('#message').html('<div class="alert alert-warning alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Failure!</strong> Something went wrong. Please refresh the page and try once again.</div>');
-     $('#loginBtn').html('<i class="fa fa-sign-in"></i> Login to Account');
-     window.setTimeout(function() {
-       $(".alert").fadeTo(500, 0).slideUp(500, function(){
-         $(this).remove(); 
-       });
-     }, 5000);
-   }
- });
+      },
+      error:function(data){
+       $('#message').html('<div class="alert alert-warning alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Failure!</strong> Something went wrong. Please refresh the page and try once again.</div>');
+       $('#loginBtn').html('<i class="fa fa-sign-in"></i> Login to Account');
+       window.setTimeout(function() {
+         $(".alert").fadeTo(500, 0).slideUp(500, function(){
+           $(this).remove(); 
+         });
+       }, 5000);
+     }
+   });
 return false;  //stop the actual form post !important!
 });
 </script>
+
+<!-- Register user script -->
+<script>
+    // add new user
+    $("#registration_form").on('submit', function(e) {
+     e.preventDefault(); 
+     dataString = $("#registration_form").serialize();
+
+     $.ajax({
+      url: BASE_URL+"login/registerUser", 
+      type: "POST",
+      data: dataString,
+      return: false, //stop the actual form post !important!
+      beforeSend: function(){
+        $('#registerBtn').html('<span><i class="fa fa-circle-o-notch fa-spin"></i> Registering user...</span>');
+      },
+      success: function(data){
+        $('#register_message').html(data);
+        $('#registerBtn').html('<i class="fa fa-download"></i> Register Here');
+      },
+      error:function(data){
+       $('#register_message').html('<div class="alert alert-warning alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Failure!</strong> Something went wrong. Please refresh the page and try once again.</div>');
+       $('#registerBtn').html('<i class="fa fa-sign-in"></i> Register Here');
+       window.setTimeout(function() {
+         $(".alert").fadeTo(500, 0).slideUp(500, function(){
+           $(this).remove(); 
+         });
+       }, 5000);
+     }
+   });
+return false;  //stop the actual form post !important!
+});
+</script>
+<!-- Register user script ends -->
 </body>
 </html>

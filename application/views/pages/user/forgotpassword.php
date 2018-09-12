@@ -28,14 +28,15 @@
     <div class="login_wrapper ">
       <div class="animate form login_form w3-padding">
         <section class="login_content w3-padding w3-white w3-text-grey w3-card-2">
-          <form >
+          <form id="getpasswordForm">
             <h1>Get Password</h1>
             <h6>Don't remember your password? Please enter valid email-id to get your password!</h6>
+            <div id="fpasswd_message"></div>
             <div>
-              <input type="email" class="form-control" placeholder="Enter email-ID here..." required>
+              <input type="email" name="user_email" class="form-control" placeholder="Enter email-ID here..." required>
             </div>              
             <div>
-              <button class="btn btn-primary btn-block" type="submit">Submit</button>
+              <button class="btn btn-primary btn-block" type="submit" id="getPasswordBtn"><i class="fa fa-unlock"></i> Submit</button>
             </div>
 
             <div class="clearfix"></div>
@@ -56,9 +57,36 @@
     </div>
   </div>
 
-  <!-- Authenticate user script  -->
+  <!-- send user email to get password  -->
   <script>
- 
-</script>
+    $("#getpasswordForm").on('submit', function(e) {
+     e.preventDefault(); 
+     dataString = $("#getpasswordForm").serialize();
+
+     $.ajax({
+      url: BASE_URL+"forgot_password/getPassword", 
+      type: "POST",
+      data: dataString,
+      return: false, //stop the actual form post !important!
+      beforeSend: function(){
+        $('#getPasswordBtn').html('<span><i class="fa fa-circle-o-notch fa-spin"></i> Sending password...</span>');
+      },
+      success: function(data){
+        $('#fpasswd_message').html(data);
+        $('#getPasswordBtn').html('<i class="fa fa-unlock"></i> Submit');
+      },
+      error:function(data){
+       $('#fpasswd_message').html('<div class="alert alert-warning alert-dismissible fade in alert-fixed w3-round"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Failure!</strong> Something went wrong. Please refresh the page and try once again.</div>');
+       $('#getPasswordBtn').html('<i class="fa fa-unlock"></i> Submit');
+       window.setTimeout(function() {
+         $(".alert").fadeTo(500, 0).slideUp(500, function(){
+           $(this).remove(); 
+         });
+       }, 5000);
+     }
+   });
+return false;  //stop the actual form post !important!
+});
+  </script>
 </body>
 </html>

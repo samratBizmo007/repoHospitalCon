@@ -2,13 +2,13 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Viewdoctors extends CI_Controller {
+class Vieworgans extends CI_Controller {
 
     // Dashboard controller
     public function __construct() {
         parent::__construct();
 
-        $this->load->model('admin/Doctor_model');
+        $this->load->model('admin/Organ_model');
         //start session		
         $admin_name = $this->session->userdata('admin_name');
 
@@ -19,25 +19,24 @@ class Viewdoctors extends CI_Controller {
 
     // main index function
     public function index() {
-        $data['doctors'] = Viewdoctors::getAllDoctors();
-        $data['hospitals'] = Viewdoctors::getAllHospitals();
-
+        $data['organs'] = Vieworgans::getAllorgans();
+        $data['hospitals'] = Vieworgans::getAllHospitals();
         $this->load->view('includes/header');
-        $this->load->view('pages/admin/viewdoctor', $data);
+        $this->load->view('pages/admin/vieworgan', $data);
         $this->load->view('includes/footer');
     }
 
-    public function getAllDoctors() {
-        $result = $this->Doctor_model->getAllDoctors();
+    public function getAllorgans() {
+        $result = $this->Organ_model->getAllorgans();
         return $result;
     }
 
     public function getAllHospitals() {
-        $result = $this->Doctor_model->getAllHospitals();
+        $result = $this->Organ_model->getAllHospitals();
         return $result;
     }
 
-    public function updateDoctorDetails() {
+    public function updateOrganDetails() {
         extract($_POST);
         //print_r($_POST);
         //die();
@@ -46,28 +45,28 @@ class Viewdoctors extends CI_Controller {
             echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Please Select Valid Hospital Name.</h4>';
             die();
         }
-        $result = $this->Doctor_model->updateDoctorDetails($data);
+        $result = $this->Organ_model->updateOrganDetails($data);
         //print_r($result);die();
         if ($result == 200) {
-            echo '<h4 class="w3-text-black w3-margin"><i class="fa fa-check"></i> Doctor Details Updated Successfully.</h4>
+            echo '<h4 class="w3-text-black w3-margin"><i class="fa fa-check"></i> Organ Details Updated Successfully.</h4>
              <script>
             window.setTimeout(function() {
                location.reload();
                }, 1000);
                </script>';
         } else {
-            echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Doctor Details Not Updated Successfully.</h4>';
+            echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Organ Details Not Updated Successfully.</h4>';
         }
     }
 
-    public function deleteDoctorDetails() {
+    public function deleteOrganDetails() {
         extract($_POST);
-        $result = $this->Doctor_model->deleteDoctorDetails($doc_id);
+        $result = $this->Organ_model->deleteOrganDetails($organ_id);
         //print_r($result);die();
         if ($result == 200) {
-           echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
+            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<strong>Success!</strong> Doctor Details Deleted SuccessFully.
+			<strong>Success!</strong> Organ Details Deleted SuccessFully.
 			</div>
 			<script>
 			window.setTimeout(function() {
@@ -75,13 +74,12 @@ class Viewdoctors extends CI_Controller {
 			$(this).remove();
 			});
 			}, 5000);
-                                                location.reload();
-
+                        location.reload();
 			</script>';
         } else {
             echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<strong>Warning!</strong> Doctor Details Not Deleted SuccessFully.
+			<strong>Warning!</strong> Organ Details Not Deleted SuccessFully.
 			</div>
 			<script>
 			window.setTimeout(function() {

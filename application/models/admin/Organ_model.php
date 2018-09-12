@@ -1,16 +1,16 @@
 <?php
 
-class Doctor_model extends CI_Model {
+class Organ_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
     }
 
-    public function saveDoctorDetails($data) {
+    public function saveOrganDetails($data) {
         extract($data);
         //print_r($data);die();
-        $sql = "INSERT INTO doctor_tab(hosp_id,doc_name,doc_degree,doc_email,doc_gender,status)"
-                . "VALUES ('$Hospital_name','$doctor_name','$Doc_degree','$Doc_email','$Doc_gender','1')";
+        $sql = "INSERT INTO organ_tab(organ_name,organ_quantity,hosp_id,status)"
+                . "VALUES ('$organ_name','$Organ_quantity','$Hospital_name','1')";
         if ($this->db->query($sql)) {
             return TRUE;
         } else {
@@ -28,8 +28,8 @@ class Doctor_model extends CI_Model {
         }
     }
 
-    public function getAllDoctors() {
-        $sql = "SELECT * FROM doctor_tab as d JOIN hospital_tab as t on (d.hosp_id = t.hosp_id)";
+    public function getAllorgans(){
+        $sql = "SELECT * FROM organ_tab as o JOIN hospital_tab as t on (o.hosp_id = t.hosp_id)";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return FALSE;
@@ -37,11 +37,11 @@ class Doctor_model extends CI_Model {
             return $result->result_array();
         }
     }
-
-    public function updateDoctorDetails($data) {
+    
+    public function updateOrganDetails($data) {
         extract($data);
-        $sql = "UPDATE doctor_tab SET hosp_id = '$Hospital_name',doc_name = '$doctor_name',doc_degree = '$Doc_degree',"
-                . "doc_email = '$Doc_email',doc_gender = '$Doc_gender',status = '1' WHERE doc_id = '$Doc_id'";
+        $sql = "UPDATE organ_tab SET hosp_id = '$Hospital_name',organ_name = '$organ_name',"
+                . "organ_quantity = '$Organ_quantity',status = '1' WHERE organ_id = '$Organ_id'";
         //echo $sql; die();
         $this->db->query($sql);
         if ($this->db->affected_rows() > 0) {
@@ -51,8 +51,8 @@ class Doctor_model extends CI_Model {
         }
     }
 
-    public function deleteDoctorDetails($doc_id) {
-        $sql = "DELETE FROM doctor_tab WHERE doc_id = '$doc_id'";
+    public function deleteOrganDetails($Organ_id) {
+        $sql = "DELETE FROM organ_tab WHERE organ_id = '$Organ_id'";
         $result = $this->db->query($sql);
         if ($this->db->affected_rows() > 0) {
             return TRUE;
@@ -60,5 +60,5 @@ class Doctor_model extends CI_Model {
             return FALSE;
         }
     }
-
+    
 }

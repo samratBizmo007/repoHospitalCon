@@ -16,10 +16,7 @@
                         <h3><i class="fa fa-plus-circle"></i> Add Doctor </h3>
                     </div>
                 </div>
-                <?php
-                //print_r($hospitals);
-                
-                ?>
+              
                 <div id="message"></div>
                 <form id="addDoctorDetails" name="addDoctorDetails">
                     <fieldset>
