@@ -1,4 +1,4 @@
-<title>Hospital Connectivity | Add Ambulance</title>
+<title>Hospital Connectivity | Add Blood</title>
 <style type="text/css">
     #addProduct fieldset{
         /*display: none;*/
@@ -13,21 +13,29 @@
             <div class="page_title">
                 <div class="row x_title">
                     <div class="col-md-6">
-                        <h3><i class="fa fa-plus-circle"></i> Add Ambulance </h3>
+                        <h3><i class="fa fa-plus-circle"></i> Add Blood </h3>
                     </div>
                 </div>
 
                 <div id="message"></div>
-                <form id="addAmbulanceDetails" name="addAmbulanceDetails">
+                <form id="addBloodDetails" name="addBloodDetails">
                     <fieldset>
-                        <h2>Ambulance Details</h2><br>
+                        <h2>Blood Details</h2><br>
                         <div class="w3-col l12">                            
-                            <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom">
+                            <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom" >
                                 <div class="form-group">
-                                    <label for="ambulance_quantity">Ambulance Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
-                                    <input type="text" class="form-control" id="ambulance_quantity" name="ambulance_quantity" placeholder="Enter Ambulance Quantity" required>
+                                    <label for="blood_group">Blood Group<b class="w3-text-red w3-medium"> *</b> :</label>
+                                    <input type="text" class="form-control" id="blood_group" name="blood_group" placeholder="Enter Blood Group" required>
                                 </div>
                             </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom">
+                                <div class="form-group">
+                                    <label for="blood_quantity">Blood Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
+                                    <input type="text" class="form-control" id="blood_quantity" name="blood_quantity" placeholder="Enter Blood Quantity" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="w3-col l12">
                             <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom" >
                                 <div class="form-group">
                                     <label for="Hospital_name">Hospital Name<b class="w3-text-red w3-medium"> *</b> :</label>
@@ -39,9 +47,9 @@
                                     </select>
                                 </div>                                
                             </div>
-                        </div>                     
+                        </div>
                         <div class="w3-col l12 w3-center">
-                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Ambulance Details </button>
+                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Blood Details </button>
                         </div>
                     </fieldset>
                 </form>
@@ -51,7 +59,7 @@
             <div class="page_title">
                 <div class="row x_title">
                     <div class="w3-padding">
-                        <h3><i class="fa fa-ambulance"></i> All Ambulance</h3>
+                        <h3><i class="fa fa-tint w3-text-red"></i> All Blood</h3>
                     </div>
                 </div>
                 <div id="messageinfo"></div>
@@ -63,9 +71,12 @@
                                 <tr class="theme_bg">
                                     <th class="text-center">
                                         Sr.No
-                                    </th>                              
+                                    </th> 
                                     <th class="text-center">
-                                        Organ Quantity
+                                        Blood Group
+                                    </th>
+                                    <th class="text-center">
+                                        Blood Quantity
                                     </th>                        
                                     <th class="text-center">
                                         Hospital Name
@@ -79,47 +90,56 @@
                                 <?php
                                 //print_r($doctors);
                                 //die();
-                                if ($ambulances != '') {
+                                if ($blood != '') {
                                     $i = 1;
                                     $s = 0;
-                                    foreach ($ambulances as $val) {
+                                    foreach ($blood as $val) {
                                         //print_r($val);
                                         ?>
                                         <tr id="rowCount">
                                             <td class="w3-center"><?php echo $i ?></td>
-                                            <td class="w3-center"><?php echo $val['ambulance_quantity']; ?></td>
+                                            <td class="w3-center"><?php echo $val['blood_group'] ?></td>
+                                            <td class="w3-center"><?php echo $val['blood_quantity']; ?></td>
                                             <td class="w3-center"><?php echo $val['hosp_name']; ?> </td>
                                             <td class="w3-center">
-                                                <a class="btn w3-padding-small" data-toggle="modal" data-target="#updateAmbulanceModal_<?php echo $val['ambulance_id']; ?>" title="Update Ambulance Details">
+                                                <a class="btn w3-padding-small" data-toggle="modal" data-target="#updateBloodModal_<?php echo $val['blood_id']; ?>" title="Update Blood Details">
                                                     <i class="w3-text-green w3-large fa fa-edit"></i>
                                                 </a>                   
-                                                <a class="btn w3-padding-small" onclick="deleteAmbulanceDetails(<?php echo $val['ambulance_id']; ?>)" title="Delete Ambulance">
+                                                <a class="btn w3-padding-small" onclick="deleteBloodDetails(<?php echo $val['blood_id']; ?>)" title="Delete Blood">
                                                     <i class="w3-text-red w3-large fa fa-trash"></i>
                                                 </a>
                                             </td>
                                             <!-- Modal -->
-                                    <div id="updateAmbulanceModal_<?php echo $val['ambulance_id']; ?>" class="modal fadeIn" role="dialog">
-                                        <form id="updateAmbulanceForm_<?php echo $val['ambulance_id']; ?>" name="updateAmbulanceForm_<?php echo $val['ambulance_id']; ?>">
+                                    <div id="updateBloodModal_<?php echo $val['blood_id']; ?>" class="modal fadeIn" role="dialog">
+                                        <form id="updateBloodForm_<?php echo $val['blood_id']; ?>" name="updateBloodForm_<?php echo $val['blood_id']; ?>">
                                             <div class="modal-dialog modal-lg">
                                                 <!----------------------------------- Modal content------------------------------------>
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Update Ambulance Details</h4>
+                                                        <h4 class="modal-title">Update Blood Details</h4>
                                                     </div>
                                                     <!----------------------------------- Modal Body------------------------------------>                                        
                                                     <div class="modal-body">
                                                         <div class="container page_title" style="margin-top: 0px;margin-bottom: 0px;">
                                                             <fieldset>
-                                                                <h2>Ambulance Details</h2><br>
+                                                                <h2>Blood Details</h2><br>
                                                                 <div class="w3-col l12">                            
-                                                                    <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom">
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom" >
                                                                         <div class="form-group">
-                                                                            <label for="ambulance_quantity">Ambulance Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
-                                                                            <input type="text" class="form-control" id="ambulance_quantity" name="ambulance_quantity" value="<?php echo $val['ambulance_quantity']; ?>" placeholder="Enter Ambulance Quantity" required>
-                                                                            <input type="hidden" class="form-control" id="ambulance_id" name="ambulance_id" value="<?php echo $val['ambulance_id']; ?>" placeholder="Enter Ambulance Quantity" required>
+                                                                            <label for="blood_group">Blood Group<b class="w3-text-red w3-medium"> *</b> :</label>
+                                                                            <input type="text" class="form-control" id="blood_group" name="blood_group" value="<?php echo $val['blood_group']; ?>" placeholder="Enter Blood Group" required>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom">
+                                                                        <div class="form-group">
+                                                                            <label for="blood_quantity">Blood Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
+                                                                            <input type="text" class="form-control" id="blood_quantity" name="blood_quantity" value="<?php echo $val['blood_quantity']; ?>" placeholder="Enter Blood Quantity" required>
+                                                                            <input type="hidden" class="form-control" id="blood_id" name="blood_id" value="<?php echo $val['blood_id']; ?>" placeholder="Enter Blood Quantity" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="w3-col l12">
                                                                     <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom" >
                                                                         <div class="form-group">
                                                                             <label for="Hospital_name">Hospital Name<b class="w3-text-red w3-medium"> *</b> :</label>
@@ -131,9 +151,9 @@
                                                                             </select>
                                                                         </div>                                
                                                                     </div>
-                                                                </div>                     
+                                                                </div>
                                                                 <div class="w3-col l12 w3-center">
-                                                                    <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Update Ambulance Details </button>
+                                                                    <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Blood Details </button>
                                                                 </div>
                                                             </fieldset>
                                                             <div id="message"></div>
@@ -146,12 +166,12 @@
                                     </div>
                                     <script type="text/javascript">
                                         $(function () {
-                                            $("#updateAmbulanceForm_<?php echo $val['ambulance_id']; ?>").submit(function (e) {
+                                            $("#updateBloodForm_<?php echo $val['blood_id']; ?>").submit(function (e) {
                                                 e.preventDefault();
-                                                dataString = $("#updateAmbulanceForm_<?php echo $val['ambulance_id']; ?>").serialize();
+                                                dataString = $("#updateBloodForm_<?php echo $val['blood_id']; ?>").serialize();
                                                 $.ajax({
                                                     type: "POST",
-                                                    url: "<?php echo base_url(); ?>admin/addambulance/updateAmbulanceDetails",
+                                                    url: "<?php echo base_url(); ?>admin/addblood/updateBloodDetails",
                                                     data: dataString,
                                                     return: false, //stop the actual form post !important!
                                                     success: function (data)
@@ -166,18 +186,18 @@
                                     </script>
                                     <!-------script for update material-->
                                     <script type="text/javascript">
-                                        function deleteAmbulanceDetails(ambulance_id) {
+                                        function deleteBloodDetails(blood_id) {
                                             $.confirm({
-                                                title: '<h4 class="w3-text-red"><i class="fa fa-warning"></i> Are you sure you want to Delete Ambulance Details?</h4>',
+                                                title: '<h4 class="w3-text-red"><i class="fa fa-warning"></i> Are you sure you want to Delete Blood Details?</h4>',
                                                 content: '',
                                                 type: 'red',
                                                 buttons: {
                                                     confirm: function () {
                                                         $.ajax({
-                                                            url: "<?php echo base_url(); ?>admin/addambulance/deleteAmbulanceDetails",
+                                                            url: "<?php echo base_url(); ?>admin/addblood/deleteBloodDetails",
                                                             type: "POST",
                                                             data: {
-                                                                ambulance_id: ambulance_id
+                                                                blood_id: blood_id
                                                             },
                                                             cache: false,
                                                             success: function (data) {
@@ -214,20 +234,20 @@
 </div>
 <script>
     //----------------jquery fun to submit the add Doctor form-----------------------------------//
-    $("#addAmbulanceDetails").submit(function () {
-        dataString = $("#addAmbulanceDetails").serialize(); //-----------get aall form variables in one variable using serialize function
+    $("#addBloodDetails").submit(function () {
+        dataString = $("#addBloodDetails").serialize(); //-----------get aall form variables in one variable using serialize function
         //alert(dataString);
-        $('#submitForm').html('<span class="w3-card w3-padding-small w3-margin-bottom w3-round"><i class="fa fa-circle-o-notch fa-spin"></i><b>Saving Ambulance. Please wait...</b></span>');
+        $('#submitForm').html('<span class="w3-card w3-padding-small w3-margin-bottom w3-round"><i class="fa fa-circle-o-notch fa-spin"></i><b>Saving Blood. Please wait...</b></span>');
         $.ajax({
             type: "POST",
-            url: "<?php echo base_url(); ?>admin/addambulance/saveAmbulaceDetails", //-----send to the admin_login controller
+            url: "<?php echo base_url(); ?>admin/addblood/saveBloodDetails", //-----send to the admin_login controller
             data: dataString,
             return: false, //stop the actual form post !important!
             success: function (data)
             {
                 //alert(data);
                 $('#message').html(data);
-                $('#submitForm').html('Save Ambulance Details');
+                $('#submitForm').html('Save Blood Details');
                 location.reload();
             }
         });

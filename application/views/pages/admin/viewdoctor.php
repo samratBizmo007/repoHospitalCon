@@ -5,11 +5,10 @@
 
     <div class="row x_title">
         <div class="w3-padding">
-            <h3><i class="fa fa-user"></i> All Doctors</h3>
+            <h3><i class="fa fa-user-md"></i> All Doctors</h3>
         </div>
     </div>
-                                                    <div id="messageinfo"></div>
-
+    <div id="messageinfo"></div>
     <div class="row clearfix" style=" margin-top: 5px;">
         <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12"    >
             <table class="table table-responsive" id="tab_logic">
@@ -72,7 +71,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Update Employee Details</h4>
+                                            <h4 class="modal-title">Update Doctor Details</h4>
                                         </div>
                                         <!----------------------------------- Modal Body------------------------------------>                                        
                                         <div class="modal-body">

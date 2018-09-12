@@ -49,22 +49,19 @@ $admin_name = $this->session->userdata('admin_name');
                             <ul class="nav side-menu">
                                 <li><a href="<?php echo base_url(); ?>admin/dashboard" class="w3-text-black"><i class="fa fa-dashboard"></i> Dashboard </a></li>
 
-                                  <li><a class="w3-text-black"><i class="fa fa-h-square"></i> Hospital Section <span class="fa fa-chevron-down"></span></a>
+                                <li><a class="w3-text-black"><i class="fa fa-h-square"></i> Hospital Section <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>admin/Add_hospital" class="w3-text-black"><i class="fa fa-h-square"></i> Add Hospital </a></li>
                                         <li><a href="<?php echo base_url(); ?>admin/View_hospitals" class="w3-text-black"><i class="fa fa-h-square"></i>View Hospitals</a></li>
                                     </ul>
-                                </li>
-                                
-     
-
+                                </li>                              
                                 <li><a class="w3-text-black"><i class="fa fa-user-md"></i> Doctor Section <span class="fa fa-chevron-down"></span></a>
-
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>admin/adddoctor" class="w3-text-black">Add Doctor</a></li>
                                         <li><a href="<?php echo base_url(); ?>admin/viewdoctors" class="w3-text-black">View Doctors</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="<?php echo base_url(); ?>admin/addblood" class="w3-text-black"><i class="fa fa-tint"></i> Blood Section </a></li>
                                 <li><a class="w3-text-black"><i class="fa fa-hospital-o"></i> Organ Section <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo base_url(); ?>admin/addorgan">Add Organ Details</a></li>
