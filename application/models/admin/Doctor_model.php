@@ -55,9 +55,9 @@ class Doctor_model extends CI_Model {
         $sql = "DELETE FROM doctor_tab WHERE doc_id = '$doc_id'";
         $result = $this->db->query($sql);
         if ($this->db->affected_rows() > 0) {
-            return TRUE;
+            return 200;
         } else {
-            return FALSE;
+            return 500;
         }
     }
 

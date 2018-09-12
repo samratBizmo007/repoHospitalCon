@@ -93,7 +93,7 @@
                                                 <a class="btn w3-padding-small" data-toggle="modal" data-target="#updateAmbulanceModal_<?php echo $val['ambulance_id']; ?>" title="Update Ambulance Details">
                                                     <i class="w3-text-green w3-large fa fa-edit"></i>
                                                 </a>                   
-                                                <a class="btn w3-padding-small" onclick="deleteAbmulanceDetails(<?php echo $val['ambulance_id']; ?>)" title="Delete organs">
+                                                <a class="btn w3-padding-small" onclick="deleteAmbulanceDetails(<?php echo $val['ambulance_id']; ?>)" title="Delete organs">
                                                     <i class="w3-text-red w3-large fa fa-trash"></i>
                                                 </a>
                                             </td>
@@ -117,6 +117,7 @@
                                                                         <div class="form-group">
                                                                             <label for="ambulance_quantity">Ambulance Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
                                                                             <input type="text" class="form-control" id="ambulance_quantity" name="ambulance_quantity" value="<?php echo $val['ambulance_quantity']; ?>" placeholder="Enter Ambulance Quantity" required>
+                                                                            <input type="hidden" class="form-control" id="ambulance_id" name="ambulance_id" value="<?php echo $val['ambulance_id']; ?>" placeholder="Enter Ambulance Quantity" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom" >
@@ -145,12 +146,12 @@
                                     </div>
                                     <script type="text/javascript">
                                         $(function () {
-                                            $("#updateAmbulanceForm_<?php echo $val['organ_id']; ?>").submit(function (e) {
+                                            $("#updateAmbulanceForm_<?php echo $val['ambulance_id']; ?>").submit(function (e) {
                                                 e.preventDefault();
-                                                dataString = $("#updateAmbulanceForm_<?php echo $val['organ_id']; ?>").serialize();
+                                                dataString = $("#updateAmbulanceForm_<?php echo $val['ambulance_id']; ?>").serialize();
                                                 $.ajax({
                                                     type: "POST",
-                                                    url: "<?php echo base_url(); ?>admin/addambulance/updateOrganDetails",
+                                                    url: "<?php echo base_url(); ?>admin/addambulance/updateAmbulanceDetails",
                                                     data: dataString,
                                                     return: false, //stop the actual form post !important!
                                                     success: function (data)
@@ -165,18 +166,18 @@
                                     </script>
                                     <!-------script for update material-->
                                     <script type="text/javascript">
-                                        function deleteAbmulanceDetails(ambulance_id) {
+                                        function deleteAmbulanceDetails(ambulance_id) {
                                             $.confirm({
-                                                title: '<h4 class="w3-text-red"><i class="fa fa-warning"></i> Are you sure you want to Delete Organ Details?</h4>',
+                                                title: '<h4 class="w3-text-red"><i class="fa fa-warning"></i> Are you sure you want to Delete Ambulance Details?</h4>',
                                                 content: '',
                                                 type: 'red',
                                                 buttons: {
                                                     confirm: function () {
                                                         $.ajax({
-                                                            url: "<?php echo base_url(); ?>admin/addambulance/deleteAbmulanceDetails",
+                                                            url: "<?php echo base_url(); ?>admin/addambulance/deleteAmbulanceDetails",
                                                             type: "POST",
                                                             data: {
-                                                                organ_id: organ_id
+                                                                ambulance_id: ambulance_id
                                                             },
                                                             cache: false,
                                                             success: function (data) {

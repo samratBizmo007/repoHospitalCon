@@ -55,9 +55,9 @@ class Organ_model extends CI_Model {
         $sql = "DELETE FROM organ_tab WHERE organ_id = '$Organ_id'";
         $result = $this->db->query($sql);
         if ($this->db->affected_rows() > 0) {
-            return TRUE;
+            return 200;
         } else {
-            return FALSE;
+            return 500;
         }
     }
     

@@ -38,4 +38,27 @@ class Ambulance_model extends CI_Model {
         }
     }
 
+    public function updateAmbulanceDetails($data) {
+        extract($data);
+        $sql = "UPDATE ambulance_tab SET hosp_id = '$Hospital_name',"
+                . "ambulance_quantity = '$ambulance_quantity' WHERE ambulance_id = '$ambulance_id'";
+        //echo $sql; die();
+        $this->db->query($sql);
+        if ($this->db->affected_rows() > 0) {
+            return 200;
+        } else {
+            return 500;
+        }
+    }
+
+    public function deleteAmbulanceDetails($ambulance_id) {
+        $sql = "DELETE FROM ambulance_tab WHERE ambulance_id = '$ambulance_id'";
+        $result = $this->db->query($sql);
+        if ($this->db->affected_rows() > 0) {
+            return 200;
+        } else {
+            return 500;
+        }
+    }
+
 }
