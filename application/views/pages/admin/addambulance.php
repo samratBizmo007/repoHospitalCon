@@ -51,7 +51,7 @@
             <div class="page_title">
                 <div class="row x_title">
                     <div class="w3-padding">
-                        <h3><i class="fa fa-user"></i> All Organs</h3>
+                        <h3><i class="fa fa-user"></i> All Ambulance</h3>
                     </div>
                 </div>
                 <div id="messageinfo"></div>
