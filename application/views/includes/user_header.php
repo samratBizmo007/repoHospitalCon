@@ -21,10 +21,12 @@ $usermail=$arr[2];
   <!-- Font Awesome -->
   <link href="<?php echo base_url(); ?>assets/fa/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>assets/build/css/w3.css" rel="stylesheet">
-  <!-- angular-->
+  <link href="<?php echo base_url(); ?>assets/alert/jquery-confirm.css" rel="stylesheet">
+  <!-- js-->
   <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
+  <script src="<?php echo base_url(); ?>assets/alert/jquery-confirm.js"></script>
   <style type="text/css">  
   .box_shadow{
     background-color: #FFAF00;
