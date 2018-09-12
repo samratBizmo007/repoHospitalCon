@@ -46,7 +46,7 @@
                             <div class="col-md-4 col-sm-12 col-xs-12 w3-margin-bottom">
                                 <div class="form-group">
                                     <label for="product_name">Doctor Email<b class="w3-text-red w3-medium"> *</b> :</label>
-                                    <input type="text" class="form-control" id="Doc_email" name="Doc_email" placeholder="Enter product name" required>
+                                    <input type="email" class="form-control" id="Doc_email" name="Doc_email" placeholder="Enter product name" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12 w3-margin-bottom">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <div class="w3-col l12 w3-center">
-                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Doctor </button>
+                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-margin-top w3-text-black" style=" background-color: #FFAF00;"> <i class="fa fa-save"></i> Save Doctor </button>
                         </div>
                     </fieldset>
                 </form>

@@ -21,6 +21,9 @@
                                 Hospital Name
                             </th>
                             <th class="text-center">
+                                Hospital Email
+                            </th>
+                            <th class="text-center">
                                 Hospital Number
                             </th>
                             <th class="text-center">
@@ -46,6 +49,7 @@
                                 <tr id="rowCount">
                                     <td class="w3-center"><?php echo $i ?></td>
                                     <td class="w3-center"><?php echo $val['hosp_name']; ?></td>
+                                    <td class="w3-center"><?php echo $val['hosp_email']; ?></td>
                                     <td class="w3-center"><?php echo $val['hosp_number']; ?></td>
                                     <td class="w3-center"><?php echo $val['hosp_location']; ?></td>
                                     <td class="w3-center"><?php echo $val['hosp_addr']; ?></td>
@@ -99,12 +103,16 @@
                                                                     <div class="col-lg-6 col-xs-12 col-sm-12" id="">
                                                                         <label>Hospital Address <b class="w3-text-red w3-medium">*</b></label>
                                                                         <textarea name="hospital_address" id="hospital_address" class="form-control" placeholder="Enter Address here" value="" required> <?php echo $val['hosp_addr']; ?></textarea>
-
                                                                     </div>
                                                                 </div>
-
-                                                                <div class="w3-center w3-col l12" style="">
-                                                                    <button  type="submit" title="add Material" id="btnsubmit" class="w3-medium w3-button theme_bg">Update Details</button>
+                                                                <div class="w3-col l12">
+                                                                    <div class="col-lg-6 col-xs-12 col-sm-12">
+                                                                        <label for="hosp_email">Hospital Email<b class="w3-text-red w3-medium"> *</b> :</label>
+                                                                        <input type="email" class="form-control" id="hosp_email" name="hosp_email" value="<?php echo $val['hosp_email'] ?>" placeholder="Enter Hospital Email" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="w3-center w3-col l12" style="margin-top: 15px;">
+                                                                    <button  type="submit" title="add Material" id="btnsubmit" class="w3-medium w3-button w3-text-black" style=" background-color: #FFAF00;">Update Details</button>
                                                                 </div>
 
                                                                 <div class="" ng-bind-html="message"></div>
@@ -159,7 +167,7 @@
                                                     },
                                                     cache: false,
                                                     success: function (data) {
-                                                       $('#message').html(data);                                                        
+                                                        $('#message').html(data);
                                                     }
                                                 });
                                             },

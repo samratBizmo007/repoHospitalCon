@@ -26,7 +26,7 @@
                             <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom">
                                 <div class="form-group">
                                     <label for="Organ_quantity">Organ Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
-                                    <input type="text" class="form-control" id="Organ_quantity" name="Organ_quantity" placeholder="Enter Organ Quantity" required>
+                                    <input type="number" class="form-control" id="Organ_quantity" name="Organ_quantity" placeholder="Enter Organ Quantity" required>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="w3-col l12 w3-center">
-                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Organ </button>
+                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-margin-top w3-text-black" style=" background-color: #FFAF00;"> <i class="fa fa-save"></i> Save Organ </button>
                         </div>
                     </fieldset>
                 </form>

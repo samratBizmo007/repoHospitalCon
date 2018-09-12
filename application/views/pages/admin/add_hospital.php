@@ -37,9 +37,15 @@
                                     <textarea name="hospital_address" id="hospital_address" class="form-control" placeholder="Enter Hospital Address Here" value="" required></textarea>
                                 </div>
                             </div>
+                            <div class="w3-col l12">
+                                <div class="col-lg-6 col-xs-12 col-sm-12" id="">
+                                    <label for="hosp_email">Hospital Email<b class="w3-text-red w3-medium"> *</b> :</label>
+                                    <input type="email" class="form-control" id="hosp_email" name="hosp_email" placeholder="Enter Hospital Email" required>
+                                </div>
+                            </div><br>
 
-                            <div class=" w3-center w3-col l12" style="">
-                                <button  type="submit" title="add Material" id="btnsubmit" class="w3-medium w3-button theme_bg">Add Hospital</button>
+                            <div class=" w3-center w3-col l12" style="margin-top: 15px;">
+                                <button  type="submit" title="add Material" id="btnsubmit" class="w3-medium w3-button w3-text-black" style=" background-color: #FFAF00;">Add Hospital</button>
                             </div>
                         </form>
                         <div class="message"></div>

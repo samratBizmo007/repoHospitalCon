@@ -26,7 +26,7 @@
                             <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom">
                                 <div class="form-group">
                                     <label for="ambulance_quantity">Ambulance Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
-                                    <input type="text" class="form-control" id="ambulance_quantity" name="ambulance_quantity" placeholder="Enter Ambulance Quantity" required>
+                                    <input type="number" class="form-control" id="ambulance_quantity" name="ambulance_quantity" placeholder="Enter Ambulance Quantity" required>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom" >
@@ -42,7 +42,7 @@
                             </div>
                         </div>                     
                         <div class="w3-col l12 w3-center">
-                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Ambulance Details </button>
+                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-margin-top w3-text-black" style=" background-color: #FFAF00;"> <i class="fa fa-save"></i> Save Ambulance Details </button>
                         </div>
                     </fieldset>
                 </form>
@@ -136,7 +136,7 @@
                                                                     </div>
                                                                 </div>                     
                                                                 <div class="w3-col l12 w3-center">
-                                                                    <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Update Ambulance Details </button>
+                                                                    <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-margin-top w3-text-black" style=" background-color: #FFAF00;"> <i class="fa fa-save"></i> Update Ambulance Details </button>
                                                                 </div>
                                                             </fieldset>
                                                             <div id="message"></div>

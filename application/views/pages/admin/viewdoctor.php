@@ -127,7 +127,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="w3-col l12 w3-center">
-                                                        <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Update Doctor </button>
+                                                        <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-margin-top w3-text-black" style=" background-color: #FFAF00;"> <i class="fa fa-save"></i> Update Doctor </button>
                                                     </div>
                                                 </fieldset>
                                                 <div id="message"></div>

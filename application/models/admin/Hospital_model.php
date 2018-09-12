@@ -10,8 +10,8 @@ class Hospital_model extends CI_Model {
     public function addHospitalDetails($data) {
         // print_r($data);
         extract($data);
-        $query = "INSERT INTO hospital_tab(hosp_name,hosp_location,hosp_addr,hosp_number)"
-                . "VALUES ('$hospital_name','$hospital_location','$hospital_address','$hospital_num')";
+        $query = "INSERT INTO hospital_tab(hosp_name,hosp_location,hosp_addr,hosp_number,hosp_email)"
+                . "VALUES ('$hospital_name','$hospital_location','$hospital_address','$hospital_num','$hosp_email')";
                 // echo $query;die();
        // $result = $this->db->query($query);
        if ($this->db->query($query)) {
@@ -43,7 +43,7 @@ class Hospital_model extends CI_Model {
      public function updateHospitalDetails($data) {
         extract($data);
         // print_r($data);
-        $sql = "UPDATE hospital_tab SET hosp_name = '$hospital_name',hosp_location = '$hospital_location',"
+        $sql = "UPDATE hospital_tab SET hosp_name = '$hospital_name',hosp_email = '$hosp_email',hosp_location = '$hospital_location',"
                 . "hosp_addr = '$hospital_address',hosp_number = '$hospital_num' WHERE hosp_id = '$hosp_id'";
          // echo $sql;die();
         $this->db->query($sql);

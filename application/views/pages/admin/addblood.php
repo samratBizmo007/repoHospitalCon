@@ -27,7 +27,7 @@
                             <div class="col-md-6 col-sm-12 col-xs-12 w3-margin-bottom">
                                 <div class="form-group">
                                     <label for="blood_quantity">Blood Quantity<b class="w3-text-red w3-medium"> *</b> :</label>
-                                    <input type="text" class="form-control" id="blood_quantity" name="blood_quantity" placeholder="Enter Blood Quantity" required>
+                                    <input type="number" class="form-control" id="blood_quantity" name="blood_quantity" placeholder="Enter Blood Quantity" required>
                                 </div>
                             </div>
                         </div> 
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="w3-col l12 w3-center">
-                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Blood Details </button>
+                            <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-margin-top w3-text-black" style=" background-color: #FFAF00;"> <i class="fa fa-save"></i> Save Blood Details </button>
                         </div>
                     </fieldset>
                     <!-- Form for save blood details-->
@@ -150,7 +150,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="w3-col l12 w3-center">
-                                                                    <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Blood Details </button>
+                                                                    <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-margin-top w3-text-black" style=" background-color: #FFAF00;"> <i class="fa fa-save"></i> Save Blood Details </button>
                                                                 </div>
                                                             </fieldset>
                                                             <div id="message"></div>
