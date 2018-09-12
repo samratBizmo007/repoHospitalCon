@@ -9,9 +9,9 @@ class Login extends CI_Controller {
 		$user_session=$this->session->userdata('user_session');
 
 	//check session variable set or not, otherwise logout
-		// if((isset($user_session)) && ($user_session[0]!='')){
-		// 	redirect('user/home');
-		// }
+		if((isset($user_session)) && ($user_session!='')){
+			redirect('user/home');
+		}
 		$this->load->view('pages/user/login');
 	}
 
@@ -65,7 +65,7 @@ class Login extends CI_Controller {
 					$result = $this->user_model->registerUser($data);
 
 					if ($result) {
-						
+
 						echo '<div class="alert alert-success">
 						Registration Sucessfull. 
 						</div>
@@ -104,7 +104,7 @@ class Login extends CI_Controller {
 						$this->session->unset_userdata(array("user_session" => ""));
 						$this->session->sess_destroy();
 
-						redirect('admin/mea_admin');
+						redirect('/');
 					}
 
     //----------function for admin registerd user------------------//

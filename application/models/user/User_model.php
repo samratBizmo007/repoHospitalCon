@@ -12,7 +12,8 @@ class User_model extends CI_Model {
     public function verifyUser($user_email, $password) {
 
         //sql query to check login credentials
-        $query = "SELECT * FROM users_tab WHERE user_email='$user_email' AND user_passwd='$password'";
+        $query = "SELECT * FROM users_tab WHERE user_email='".$user_email."' AND user_password='".$password."'";
+        // echo $query;die();
         $result = $this->db->query($query);
 
         //if credentials are true, their is obviously only one record
