@@ -19,11 +19,17 @@ class Add_hospital extends CI_Controller {
 
     // main index function
     public function index() {
+         $data['locations'] = Add_hospital::getAllHospitalLocation();
         $this->load->view('includes/header');
-        $this->load->view('pages/admin/add_hospital');
+        $this->load->view('pages/admin/add_hospital',$data);
         $this->load->view('includes/footer');
     }
 
+    // --------function for get hospital location
+     public function getAllHospitalLocation() {
+        $result = $this->Hospital_model->getAllHospitalLocation();
+        return $result;
+    }
     //----------this function add hospital details-----------------------------
     public function addHospitalDetails() {
           extract($_POST);

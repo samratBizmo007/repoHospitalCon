@@ -19,7 +19,13 @@
                                 </div>
                                 <div class="col-lg-6 col-xs-12 col-sm-12" id="">
                                     <label>Hospital Location <b class="w3-text-red w3-medium">*</b></label>
-                                    <input type="text" name="hospital_location" id="hospital_location" class="form-control" placeholder="Enter Hospital Location Here" value="" required>
+                                   <select name="Hospital_name" class="form-control w3-small" id="Hospital_name">
+                                        <option value="0" class="w3-text-grey w3-light-grey " selected>Please choose Hospital Location</option>
+                                        <?php 
+                                        foreach ($locations as $key) {   ?>
+                                        <option value="<?php echo $key['hosp_id']; ?>"><?php echo $key['hosp_location'];?></option>  
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="w3-col l12 w3-margin-bottom">

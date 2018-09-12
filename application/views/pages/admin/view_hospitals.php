@@ -50,16 +50,16 @@
                                 <td class="w3-center"><?php echo $val['hosp_addr']; ?></td>
                                 </td>
                                 <td class="w3-center">
-                                    <a class="btn w3-padding-small" data-toggle="modal" data-target="#updateEmployeeModal_<?php echo $val['hosp_id']; ?>" ng-click="getEmployeeSkills(<?php echo $val['hosp_id']; ?>)" title="Update Employee Details">
+                                    <a class="btn w3-padding-small" data-toggle="modal" data-target="#updateHospitalModal_<?php echo $val['hosp_id']; ?>" ng-click="getEmployeeSkills(<?php echo $val['hosp_id']; ?>)" title="Update Employee Details">
                                         <i class="w3-text-green w3-large fa fa-edit"></i>
                                     </a>                   
-                                    <a class="btn w3-padding-small" onclick="deleteEmployeeDetails(<?php echo $val['hosp_id']; ?>)" title="Delete Employee">
+                                    <a class="btn w3-padding-small" onclick="deleteHospitalDetails(<?php echo $val['hosp_id']; ?>)" title="Delete Employee">
                                         <i class="w3-text-red w3-large fa fa-trash"></i>
                                     </a>
                                 </td>
                                 <!-- Modal -->
-                        <div id="updateEmployeeModal_<?php echo $val['hosp_id']; ?>" class="modal" role="dialog">
-                            <form id="updateEmployeeForm_<?php echo $val['hosp_id']; ?>" name="updateEmployeeForm_<?php echo $val['hosp_id']; ?>">
+                        <div id="updateHospitalModal_<?php echo $val['hosp_id']; ?>" class="modal" role="dialog">
+                            <form id="updateHospitalForm_<?php echo $val['hosp_id']; ?>" name="updateHospitalForm_<?php echo $val['hosp_id']; ?>">
                                 <div class="modal-dialog modal-lg">
                                     <!----------------------------------- Modal content------------------------------------>
                                     <div class="modal-content">
@@ -78,7 +78,7 @@
                                                                 <div class="col-lg-6 col-xs-12 col-sm-12" id="">
                                                                     <label>Hospital Name <b class="w3-text-red w3-medium">*</b></label>
                                                                     <input type="text" name="hospital_name" id="hospital_name" class="form-control" placeholder="Hospital Name" value="<?php echo $val['hosp_name'] ?>" required>
-                                                                    <input type="hidden" name="emp_id" id="emp_id" class="form-control" placeholder="Employee Name" value="<?php echo $val['hosp_name'] ?>">
+                                                                    <input type="hidden" name="hosp_id" id="hosp_id" class="form-control" placeholder="Hospital Name" value="<?php echo $val['hosp_id'] ?>">
                                                                 </div>
                                                                 <div class="col-lg-6 col-xs-12 col-sm-12" id="">
                                                                     <label>Hospital Number <b class="w3-text-red w3-medium">*</b></label>
@@ -88,13 +88,17 @@
                                                            <div class="w3-col l12 w3-margin-bottom">
                                                                 <div class="col-lg-6 col-xs-12 col-sm-12" id="">
                                                                     <label>Hospital Location <b class="w3-text-red w3-medium">*</b></label>
-                                                                    <input type="text" name="hospital_location" id="hospital_location" class="form-control" placeholder="Hospital Name" value="<?php echo $val['hosp_location'] ?>" required>
-                                                                    <input type="hidden" name="hosp_id" id="hosp_id" class="form-control" placeholder="Hospital Name" value="<?php echo $val['hosp_location'] ?>">
+                                                                    <select name="hospital_location" class="form-control w3-small" id="hospital_location">
+                                                                    <option value="0" class="w3-text-grey w3-light-grey " selected>Please choose Hospital Location</option>
+                                                                    <?php foreach ($locations as $key) { ?>
+                                                                        <option value="<?php echo $key['hosp_id']; ?>" <?php if ($key['hosp_id'] == $val['hosp_id']) echo ' selected="selected"'; ?>><?php echo $key['hosp_location']; ?></option>  
+                                                                    <?php } ?>
+                                                                </select>
                                                                 </div>
                                                                 <div class="col-lg-6 col-xs-12 col-sm-12" id="">
                                                                     <label>Hospital Address <b class="w3-text-red w3-medium">*</b></label>
-                                                                    <textarea name="hospital_address" id="hospital_address" class="form-control" placeholder="Enter Number here" value="<?php echo $val['hosp_addr']; ?>" required></textarea>
-                                                                     <input type="hidden" name="hosp_id" id="hosp_id" class="form-control" placeholder="Hospital Name" value="<?php echo $val['hosp_addr'] ?>">
+                                                                    <textarea name="hospital_address" id="hospital_address" class="form-control" placeholder="Enter Address here" value="" required> <?php echo $val['hosp_addr']; ?></textarea>
+                                                                     
                                                                 </div>
                                                             </div>
                                                             
@@ -115,25 +119,21 @@
                                 </div>
                             </form>
                         </div>
-                        <!-------script for update material-->
+                        <!-------script for update hospital-->
                         <script type="text/javascript">
                             $(function () {
-                            $("#updateEmployeeForm_<?php echo $val['hosp_id']; ?>").submit(function (e) {
+                            $("#updateHospitalForm_<?php echo $val['hosp_id']; ?>").submit(function (e) {
                             e.preventDefault();
-                            var skill_field = $('#skill_field').val();
-                            var fromDbSkills = $('#fromDbSkills').val();
-                            if (skill_field == '' && fromDbSkills == ''){
-                            $.alert('Please Choose atleast one operation');
-                            return false;
-                            }
-                            dataString = $("#updateEmployeeForm_<?php echo $val['hosp_id']; ?>").serialize();
+                           
+                            dataString = $("#updateHospitalForm_<?php echo $val['hosp_id']; ?>").serialize();
                             $.ajax({
                             type: "POST",
-                                    url: "<?php echo base_url(); ?>employee/employee/updateEmployeeDetails",
+                                    url: "<?php echo base_url(); ?>admin/view_hospitals/updateHospitalDetails",
                                     data: dataString,
                                     return: false, //stop the actual form post !important!
                                     success: function (data)
                                     {
+                                        // alert(data);
                                     $.alert(data);
                                     }
                             });
@@ -141,20 +141,20 @@
                             });
                             });
                         </script>
-                        <!-------script for update material-->
+                        <!-------script for delete hospital-->
                         <script type="text/javascript">
-                            function deleteEmployeeDetails(hosp_id) {
+                            function deleteHospitalDetails(hosp_id) {
                             $.confirm({
-                            title: '<h4 class="w3-text-red"><i class="fa fa-warning"></i> Are you sure you want to Delete Employee?</h4>',
+                            title: '<h4 class="w3-text-red"><i class="fa fa-warning"></i> Are you sure you want to Delete Hospital Details?</h4>',
                                     content: '',
                                     type: 'red',
                                     buttons: {
                                     confirm: function () {
                                     $.ajax({
-                                    url: "<?php echo base_url(); ?>employee/employee/deleteEmployeeDetails",
+                                    url: "<?php echo base_url(); ?>admin/view_hospitals/deleteHospitalDetails",
                                             type: "POST",
                                             data: {
-                                            emp_id: emp_id
+                                            hosp_id: hosp_id
                                             },
                                             cache: false,
                                             success: function (data) {
