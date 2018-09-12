@@ -68,7 +68,7 @@
                                         Sr.No
                                     </th>                              
                                     <th class="text-center">
-                                        Organ Quantity
+                                        Ambulance Quantity
                                     </th>                        
                                     <th class="text-center">
                                         Hospital Name
