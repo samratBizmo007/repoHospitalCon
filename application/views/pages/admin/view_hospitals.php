@@ -91,7 +91,7 @@
                                                                     <select name="hospital_location" class="form-control w3-small" id="hospital_location">
                                                                     <option value="0" class="w3-text-grey w3-light-grey " selected>Please choose Hospital Location</option>
                                                                     <?php foreach ($locations as $key) { ?>
-                                                                        <option value="<?php echo $key['hosp_id']; ?>" <?php if ($key['hosp_id'] == $val['hosp_id']) echo ' selected="selected"'; ?>><?php echo $key['hosp_location']; ?></option>  
+                                                                        <option value="<?php echo $key['location_id']; ?>" <?php if ($key['location_name'] == $val['hosp_location']) echo ' selected="selected"'; ?>><?php echo $key['location_name']; ?></option>  
                                                                     <?php } ?>
                                                                 </select>
                                                                 </div>

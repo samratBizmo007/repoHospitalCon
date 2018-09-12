@@ -35,9 +35,38 @@ class Add_hospital extends CI_Controller {
           extract($_POST);
           $data=$_POST;
           // print_r($_POST);die();
-        $response = $this->Hospital_model->addHospitalDetails($data);
-        // print_r($response_json);die();
-        return $response;
+        // $response = $this->Hospital_model->addHospitalDetails($data);
+         // print_r($response);die();
+         $result = $this->Hospital_model->addHospitalDetails($data);
+        // print_r($result);die();
+        if ($result) {
+            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> Hospital Details Saved SuccessFully.
+            </div>
+            <script>
+            window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+            });
+            window.location.reload();
+            }, 1000);
+                        
+            </script>';
+        } else {
+            echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> Hospital Details Not Saved SuccessFully.
+            </div>
+            <script>
+            window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove(); 
+            });
+            }, 5000);
+            </script>';
+        }
+        // return $response;
     }
 
 

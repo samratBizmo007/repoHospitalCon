@@ -12,11 +12,12 @@ class Hospital_model extends CI_Model {
         extract($data);
         $query = "INSERT INTO hospital_tab(hosp_name,hosp_location,hosp_addr,hosp_number)"
                 . "VALUES ('$hospital_name','$hospital_location','$hospital_address','$hospital_num')";
-        $result = $this->db->query($query);
-        if ($result) {
-              return true;
-            } else {
-           return false;
+                // echo $query;die();
+       // $result = $this->db->query($query);
+       if ($this->db->query($query)) {
+            return true;
+        } else {
+            return false;
         }
        
     }
@@ -66,7 +67,7 @@ class Hospital_model extends CI_Model {
 
 
      public function getAllHospitalLocation() {
-        $sql = "SELECT * FROM hospital_tab";
+        $sql = "SELECT * FROM location_tab";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return FALSE;

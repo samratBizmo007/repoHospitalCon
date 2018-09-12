@@ -19,11 +19,11 @@
                                 </div>
                                 <div class="col-lg-6 col-xs-12 col-sm-12" id="">
                                     <label>Hospital Location <b class="w3-text-red w3-medium">*</b></label>
-                                   <select name="Hospital_name" class="form-control w3-small" id="Hospital_name">
+                                   <select name="hospital_location" class="form-control w3-small" id="location_name">
                                         <option value="0" class="w3-text-grey w3-light-grey " selected>Please choose Hospital Location</option>
                                         <?php 
                                         foreach ($locations as $key) {   ?>
-                                        <option value="<?php echo $key['hosp_id']; ?>"><?php echo $key['hosp_location'];?></option>  
+                                        <option value="<?php echo $key['location_name']; ?>"><?php echo $key['location_name'];?></option>  
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -43,7 +43,7 @@
                                 <button  type="submit" title="add Material" id="btnsubmit" class="w3-medium w3-button theme_bg">Add Hospital</button>
                             </div>
                         </form>
-                    
+                    <div class="message"></div>
                     </div>                   
                 </div>
                 <div class="col-lg-1"></div>
@@ -67,16 +67,7 @@
            success: function(data)
            {
             // alert(data);
-             
-             if (data) {
-                            $('#message').html('<p class="w3-green w3-padding-small">Hospital Details Added Successfully!!!</p>');
-                            $('#btnSubmit').html('Submit');
-                            //alert(BASE_URL + 'admin/dashboard');
-                           
-                        } else {
-                            $('#message').html('<p class="w3-green w3-padding-small">Something went wrong...Details not added successfully!!!</p>');
-                            $('#btnSubmit').html('Submit');
-                        }                   
+             $('#message').html(data);
            }
 
        });

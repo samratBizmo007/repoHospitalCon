@@ -46,7 +46,7 @@ class View_hospitals extends CI_Controller {
         $data = $_POST;
         $result = $this->Hospital_model->updateHospitalDetails($data);
         // print_r($result);die();
-        if ($result == 200) {
+        if ($result) {
             echo '<h4 class="w3-text-black w3-margin"><i class="fa fa-check"></i> Hospital Details Updated Successfully.</h4>
              <script>
             window.setTimeout(function() {
