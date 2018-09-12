@@ -6,6 +6,7 @@ class Settings_model extends CI_Model {
         parent::__construct();
     }
 
+//--------fun for get admin details---------------------//
     public function getAdminDetails() {
         $query = "SELECT * FROM admin_tab";
         $result = $this->db->query($query);
@@ -21,6 +22,7 @@ class Settings_model extends CI_Model {
         return $response;
     }
 
+//--------fun for get admin details ends---------------------//
     //-------UPDATE ADMIN EMAIL FUNCTION--------------//
     public function updateEmail($email) {
         $sql = "UPDATE admin_tab SET value='$email' WHERE name='email'";
@@ -35,7 +37,7 @@ class Settings_model extends CI_Model {
         }
         return $response;
     }
-
+//-----------------------ends ------------------------------------//
     //-------UPDATE ADMIN UPDATE FUNCTION--------------//
     public function updatePass($pass) {
         $sql = "UPDATE admin_tab SET value='$pass' WHERE name='password'";
@@ -50,5 +52,5 @@ class Settings_model extends CI_Model {
         }
         return $response;
     }
-
+//--------------------ends---------------------------------------------//
 }

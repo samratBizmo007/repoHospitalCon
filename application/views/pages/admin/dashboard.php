@@ -1,21 +1,6 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    Meta, title, CSS, favicons, etc.
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gentelella Alela! | </title>
-
-  </head>
-
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container"> -->
 
 <title>Hospital Connectivity | Dashboard</title>
-<!-- page content -->
-<!--  -->
+
 <div class="right_col" role="main">
     <!-- top tiles -->
     <div class="row tile_count">
@@ -50,12 +35,6 @@
             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
         </div>
     </div>
-    <!-- /top tiles -->
-
- 
 </div>
 
-<!-- add skill div end -->          
-<!-- /page content -->
-<!-- script for category -->
 

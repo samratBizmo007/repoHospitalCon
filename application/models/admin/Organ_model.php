@@ -6,6 +6,7 @@ class Organ_model extends CI_Model {
         parent::__construct();
     }
 
+//--------------------fun for save organ details ----------------------------------//
     public function saveOrganDetails($data) {
         extract($data);
         //print_r($data);die();
@@ -18,6 +19,9 @@ class Organ_model extends CI_Model {
         }
     }
 
+//--------------------fun for save organ details ----------------------------------//
+//--------------------fun for all hospital details ----------------------------------//
+
     public function getAllHospitals() {
         $sql = "SELECT * FROM hospital_tab";
         $result = $this->db->query($sql);
@@ -28,7 +32,10 @@ class Organ_model extends CI_Model {
         }
     }
 
-    public function getAllorgans(){
+//--------------------fun for all hospital details ----------------------------------//
+//--------------------fun for all organ details ----------------------------------//
+
+    public function getAllorgans() {
         $sql = "SELECT * FROM organ_tab as o JOIN hospital_tab as t on (o.hosp_id = t.hosp_id)";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
@@ -37,7 +44,10 @@ class Organ_model extends CI_Model {
             return $result->result_array();
         }
     }
-    
+
+    //--------------------fun for all organ details ----------------------------------//
+//--------------------fun for Update organ details ----------------------------------//
+
     public function updateOrganDetails($data) {
         extract($data);
         $sql = "UPDATE organ_tab SET hosp_id = '$Hospital_name',organ_name = '$organ_name',"
@@ -51,6 +61,9 @@ class Organ_model extends CI_Model {
         }
     }
 
+//--------------------fun for Update organ details ----------------------------------//
+//--------------------fun for delete organ details ----------------------------------//
+
     public function deleteOrganDetails($Organ_id) {
         $sql = "DELETE FROM organ_tab WHERE organ_id = '$Organ_id'";
         $result = $this->db->query($sql);
@@ -60,5 +73,6 @@ class Organ_model extends CI_Model {
             return 500;
         }
     }
-    
+
+//--------------------fun for delete organ details ----------------------------------//
 }

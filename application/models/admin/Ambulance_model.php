@@ -6,6 +6,8 @@ class Ambulance_model extends CI_Model {
         parent::__construct();
     }
 
+//-----------------------fun for save ambulance details--------------------------------//
+
     public function saveAmbulaceDetails($data) {
         extract($data);
         //print_r($data);die();
@@ -18,6 +20,9 @@ class Ambulance_model extends CI_Model {
         }
     }
 
+//-----------------------fun for save ambulance details--------------------------------//
+//-----------------------fun for get all hospital details--------------------------------//
+
     public function getAllHospitals() {
         $sql = "SELECT * FROM hospital_tab";
         $result = $this->db->query($sql);
@@ -28,6 +33,9 @@ class Ambulance_model extends CI_Model {
         }
     }
 
+//-----------------------fun for get all hospital details--------------------------------//
+//-----------------------fun for get all ambulance details--------------------------------//
+
     public function getAllAmbulances() {
         $sql = "SELECT * FROM ambulance_tab as o JOIN hospital_tab as t on (o.hosp_id = t.hosp_id)";
         $result = $this->db->query($sql);
@@ -37,6 +45,9 @@ class Ambulance_model extends CI_Model {
             return $result->result_array();
         }
     }
+
+//-----------------------fun for get all ambulance details--------------------------------//
+//-----------------------fun for update ambulance details--------------------------------//
 
     public function updateAmbulanceDetails($data) {
         extract($data);
@@ -51,6 +62,9 @@ class Ambulance_model extends CI_Model {
         }
     }
 
+//-----------------------fun for update ambulance details--------------------------------//
+//-----------------------fun for delete ambulance details--------------------------------//
+
     public function deleteAmbulanceDetails($ambulance_id) {
         $sql = "DELETE FROM ambulance_tab WHERE ambulance_id = '$ambulance_id'";
         $result = $this->db->query($sql);
@@ -61,4 +75,5 @@ class Ambulance_model extends CI_Model {
         }
     }
 
+//-----------------------fun for delete ambulance details--------------------------------//
 }

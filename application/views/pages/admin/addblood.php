@@ -1,13 +1,8 @@
 <title>Hospital Connectivity | Add Blood</title>
-<style type="text/css">
-    #addProduct fieldset{
-        /*display: none;*/
-        margin-bottom: 16px
-    }
-</style>
+
 <!-- page content -->
 <div class="right_col" role="main">
-
+    <!-- main div-->
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="page_title">
@@ -19,6 +14,7 @@
 
                 <div id="message"></div>
                 <form id="addBloodDetails" name="addBloodDetails">
+                    <!-- Form for save blood details-->
                     <fieldset>
                         <h2>Blood Details</h2><br>
                         <div class="w3-col l12">                            
@@ -52,10 +48,11 @@
                             <button type="submit" name="submitForm" id="submitForm" class="w3-center w3-hover-text-white btn w3-orange w3-margin-top"> <i class="fa fa-save"></i> Save Blood Details </button>
                         </div>
                     </fieldset>
+                    <!-- Form for save blood details-->
                 </form>
             </div>
 
-            <!--Div For show ambulances in table-->
+            <!--Div For show Blood details in table-->
             <div class="page_title">
                 <div class="row x_title">
                     <div class="w3-padding">
@@ -63,9 +60,9 @@
                     </div>
                 </div>
                 <div id="messageinfo"></div>
-
                 <div class="row clearfix" style=" margin-top: 5px;">
-                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12"    >
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                        <!-- blood table starts here-->
                         <table class="table table-responsive" id="tab_logic">
                             <thead>
                                 <tr class="theme_bg">
@@ -164,6 +161,7 @@
                                             </div>
                                         </form>
                                     </div>
+                                    <!-------script for update blood-->
                                     <script type="text/javascript">
                                         $(function () {
                                             $("#updateBloodForm_<?php echo $val['blood_id']; ?>").submit(function (e) {
@@ -184,7 +182,8 @@
                                             });
                                         });
                                     </script>
-                                    <!-------script for update material-->
+                                    <!-------script for update blood-->
+                                    <!-------script for Delete blood-->
                                     <script type="text/javascript">
                                         function deleteBloodDetails(blood_id) {
                                             $.confirm({
@@ -213,6 +212,7 @@
                                             });
                                         }
                                     </script>
+                                    <!-------script for Delete blood-->
                                     <!-- Modal Ends Here-->
                                     </tr>
                                     <?php
@@ -226,9 +226,11 @@
                             <?php } ?>
                             </tbody>
                         </table>
+                        <!-- blood table ends here-->
                     </div>
-                </div></div>
-
+                </div>
+            </div>
+            <!--Div For show Blood details in table-->
         </div>
     </div>
 </div>
@@ -248,7 +250,7 @@
                 //alert(data);
                 $('#message').html(data);
                 $('#submitForm').html('Save Blood Details');
-                location.reload();
+                //location.reload();
             }
         });
         return false; //stop the actual form post !important!

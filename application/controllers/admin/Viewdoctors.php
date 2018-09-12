@@ -8,9 +8,9 @@ class Viewdoctors extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-        $this->load->model('admin/Doctor_model');
+        $this->load->model('admin/Doctor_model'); //--------------load model for sql operation
         //start session		
-        $admin_name = $this->session->userdata('admin_name');
+        $admin_name = $this->session->userdata('admin_name'); //---------------session variable
 
         if ($admin_name == '') {
             redirect('admin/admin_login');
@@ -19,23 +19,30 @@ class Viewdoctors extends CI_Controller {
 
     // main index function
     public function index() {
-        $data['doctors'] = Viewdoctors::getAllDoctors();
-        $data['hospitals'] = Viewdoctors::getAllHospitals();
+        $data['doctors'] = Viewdoctors::getAllDoctors(); //---------------fun for get all doctors
+        $data['hospitals'] = Viewdoctors::getAllHospitals(); //-----------------fun for get all hospitals 
 
         $this->load->view('includes/header');
-        $this->load->view('pages/admin/viewdoctor', $data);
+        $this->load->view('pages/admin/viewdoctor', $data); //------------load view
         $this->load->view('includes/footer');
     }
 
+//-----------------fun for get all doctors details------------------------------------------//
     public function getAllDoctors() {
         $result = $this->Doctor_model->getAllDoctors();
         return $result;
     }
 
+//-----------------fun for get all doctor details------------------------------------------//
+//-----------------fun for get all hospital details------------------------------------------//
+
     public function getAllHospitals() {
         $result = $this->Doctor_model->getAllHospitals();
         return $result;
     }
+
+//-----------------fun for get all hospital details------------------------------------------//
+//-----------------fun for Update Doctor details------------------------------------------//
 
     public function updateDoctorDetails() {
         extract($_POST);
@@ -60,12 +67,15 @@ class Viewdoctors extends CI_Controller {
         }
     }
 
+//-----------------fun for Update Doctor details------------------------------------------//
+//-----------------fun for Delete Doctor details------------------------------------------//
+
     public function deleteDoctorDetails() {
         extract($_POST);
         $result = $this->Doctor_model->deleteDoctorDetails($doc_id);
         //print_r($result);die();
         if ($result == 200) {
-           echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
+            echo '<div class="alert alert-success alert-dismissible fade in alert-fixed w3-round">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			<strong>Success!</strong> Doctor Details Deleted SuccessFully.
 			</div>
@@ -93,4 +103,5 @@ class Viewdoctors extends CI_Controller {
         }
     }
 
+//-----------------fun for Delete Doctor details------------------------------------------//
 }

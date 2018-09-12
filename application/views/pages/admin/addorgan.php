@@ -1,13 +1,7 @@
 <title>Hospital Connectivity | Add Organ</title>
-<style type="text/css">
-    #addProduct fieldset{
-        /*display: none;*/
-        margin-bottom: 16px
-    }
-</style>
 <!-- page content -->
 <div class="right_col" role="main">
-
+    <!-- Main Div starts here -->
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="page_title">
@@ -18,6 +12,7 @@
                 </div>
 
                 <div id="message"></div>
+                <!-- add organ form starts here-->
                 <form id="addOrganDetails" name="addOrganDetails">
                     <fieldset>
                         <h2>Organ Details</h2><br>
@@ -54,15 +49,16 @@
                         </div>
                     </fieldset>
                 </form>
+                <!-- add organ form starts here-->
             </div>
         </div>
     </div>
 </div>
+<!-- Main Div ends here -->
 <script>
-    //----------------jquery fun to submit the add Doctor form-----------------------------------//
+    //----------------jquery fun to submit the add Organ form-----------------------------------//
     $("#addOrganDetails").submit(function () {
         dataString = $("#addOrganDetails").serialize(); //-----------get aall form variables in one variable using serialize function
-        //alert(dataString);
         $('#submitForm').html('<span class="w3-card w3-padding-small w3-margin-bottom w3-round"><i class="fa fa-circle-o-notch fa-spin"></i><b>Saving Organ. Please wait...</b></span>');
         $.ajax({
             type: "POST",
@@ -71,10 +67,8 @@
             return: false, //stop the actual form post !important!
             success: function (data)
             {
-                //alert(data);
                 $('#message').html(data);
                 $('#submitForm').html('Save Organ');
-                location.reload();
             }
         });
         return false; //stop the actual form post !important!

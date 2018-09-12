@@ -27,6 +27,7 @@
             <div class="login_wrapper">
                 <div class="animate form login_form w3-padding">
                     <section class="w3-padding w3-white w3-card-2">
+                        <!-- admin form starts here-->
                         <form id="AdminForm" name="AdminForm" method="post">
                             <br>
                             <center><span><i class="fa fa-user-secret w3-jumbo"></i></span></center>
@@ -42,11 +43,11 @@
                                 <button class="btn btn-primary btn-block" id="btnSubmit" type="submit">Submit</button>
                             </div>
                             <br>
-                            <!--                            <div class="clearfix"></div>-->
                             <div class="w3-padding-small">
                                 <h3><i class="fa fa-plus-circle w3-text-red"></i>&nbsp;Hospital&nbsp;Connectivity</h3>
                             </div>
                         </form>
+                        <!-- admin form ends here-->
                     </section>
                 </div>
             </div>
@@ -66,11 +67,9 @@
                     return: false, //stop the actual form post !important!
                     success: function (data)
                     {
-                        //alert(data);
                         if (data == 200) {
                             $('#message').html('<p class="w3-green w3-padding-small">Login Successfull! Welcome Admin.</p>');
                             $('#btnSubmit').html('Submit');
-                            //alert(BASE_URL + 'admin/dashboard');
                             window.location.href = BASE_URL + 'admin/dashboard';
                         } else {
                             $('#message').html(data);

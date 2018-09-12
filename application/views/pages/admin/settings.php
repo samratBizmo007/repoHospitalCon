@@ -1,23 +1,8 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    Meta, title, CSS, favicons, etc.
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gentelella Alela! | </title>
-
-  </head>
-
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container"> -->
-
 <title>Hospital Connectivity | Dashboard</title>
 <!-- page content -->
 <!--  -->
 <div class="right_col" role="main">
-    <!-- Div for -->
+    <!-- Main Div  -->
     <div class="row" style="padding-left:10px;">
         <!-- Div for update email-->
         <div id="message"></div>
@@ -34,6 +19,7 @@
                 </form>
             </div>
         </fieldset>
+        <!-- Div for update email-->
         <!-- Div for update password-->
         <div class="clearfix" style="margin-top: 2px; margin-bottom: 2px;"></div>
         <fieldset>
@@ -49,6 +35,7 @@
                 </form>
             </div>
         </fieldset>
+        <!-- Div for update password-->
     </div>
 </div>
 
@@ -66,7 +53,6 @@
 
                 success: function (data)
                 {
-                    //$.alert(data);
                     $('#message').html(data);
                 }
             });
@@ -87,7 +73,6 @@
 
                 success: function (data)
                 {
-                    //$.alert(data);
                     $('#message').html(data);
                 }
 

@@ -8,9 +8,9 @@ class Addblood extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-        $this->load->model('admin/Blood_model');
+        $this->load->model('admin/Blood_model');  //-------- load bood model for sql operations
         //start session		
-        $admin_name = $this->session->userdata('admin_name');
+        $admin_name = $this->session->userdata('admin_name');  //-----------session variable
 
         if ($admin_name == '') {
             redirect('admin/admin_login');
@@ -19,23 +19,26 @@ class Addblood extends CI_Controller {
 
     // main index function
     public function index() {
-        $data['hospitals'] = Addblood::getAllHospitals();
-        $data['blood'] = Addblood::getAllBlood();
+        $data['hospitals'] = Addblood::getAllHospitals(); //--------------get all hospitals
+        $data['blood'] = Addblood::getAllBlood(); //--------------get all blood details
         $this->load->view('includes/header');
-        $this->load->view('pages/admin/addblood', $data);
+        $this->load->view('pages/admin/addblood', $data); //----------------load view
         $this->load->view('includes/footer');
     }
-
+//-------------fun for get all hospital details--------------------------------------//
     public function getAllHospitals() {
         $result = $this->Blood_model->getAllHospitals();
         return $result;
     }
+//-------------fun for get all hospital details--------------------------------------//
+//-------------fun for get all blood details--------------------------------------//
 
     public function getAllBlood() {
         $result = $this->Blood_model->getAllBlood();
         return $result;
     }
-
+//-------------fun for get all blood details--------------------------------------//
+//-----------------fun for save blood details ------------------------------------//
     public function saveBloodDetails() {
         extract($_POST);
         $data = $_POST;
@@ -50,7 +53,7 @@ class Addblood extends CI_Controller {
 			$(".alert").fadeTo(500, 0).slideUp(500, function(){
 			$(this).remove(); 
 			});
-			}, 5000);
+			}, 2000);
 			</script>';
             die();
         }
@@ -66,8 +69,8 @@ class Addblood extends CI_Controller {
 			$(".alert").fadeTo(500, 0).slideUp(500, function(){
 			$(this).remove();
 			});
-			}, 5000);
-                        location.reload();
+                        window.location.reload();                        
+			}, 2000);
 			</script>';
         } else {
             echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
@@ -83,6 +86,8 @@ class Addblood extends CI_Controller {
 			</script>';
         }
     }
+//-----------------fun for save blood details ------------------------------------//
+//-----------------fun for Update blood details ------------------------------------//
 
     public function updateBloodDetails() {
         extract($_POST);
@@ -106,6 +111,8 @@ class Addblood extends CI_Controller {
             echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Blood Details Not Updated Successfully.</h4>';
         }
     }
+//-----------------fun for Update blood details ------------------------------------//
+//-----------------fun for Delete blood details ------------------------------------//
 
     public function deleteBloodDetails() {
         extract($_POST);
@@ -121,8 +128,8 @@ class Addblood extends CI_Controller {
 			$(".alert").fadeTo(500, 0).slideUp(500, function(){
 			$(this).remove();
 			});
-			}, 5000);
-                        location.reload();
+                        window.location.reload();
+			}, 2000);
 			</script>';
         } else {
             echo '<div class="alert alert-danger alert-dismissible fade in alert-fixed w3-round">
@@ -138,5 +145,6 @@ class Addblood extends CI_Controller {
 			</script>';
         }
     }
+//-----------------fun for Delete blood details ------------------------------------//
 
 }

@@ -7,7 +7,7 @@
 </style>
 <!-- page content -->
 <div class="right_col" role="main">
-
+    <!-- Main div starts here-->
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="page_title">
@@ -18,6 +18,7 @@
                 </div>
 
                 <div id="message"></div>
+                <!-- add ambulance form-->
                 <form id="addAmbulanceDetails" name="addAmbulanceDetails">
                     <fieldset>
                         <h2>Ambulance Details</h2><br>
@@ -45,6 +46,8 @@
                         </div>
                     </fieldset>
                 </form>
+                <!-- add ambulance form-->
+
             </div>
 
             <!--Div For show ambulances in table-->
@@ -55,9 +58,9 @@
                     </div>
                 </div>
                 <div id="messageinfo"></div>
-
                 <div class="row clearfix" style=" margin-top: 5px;">
-                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12"    >
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                        <!-- table starts here-->
                         <table class="table table-responsive" id="tab_logic">
                             <thead>
                                 <tr class="theme_bg">
@@ -144,6 +147,7 @@
                                             </div>
                                         </form>
                                     </div>
+                                    <!-------script for update ambulance starts-->
                                     <script type="text/javascript">
                                         $(function () {
                                             $("#updateAmbulanceForm_<?php echo $val['ambulance_id']; ?>").submit(function (e) {
@@ -164,7 +168,8 @@
                                             });
                                         });
                                     </script>
-                                    <!-------script for update material-->
+                                    <!-------script for update ambulance ends-->
+                                    <!-------script for Delete ambulance starts-->
                                     <script type="text/javascript">
                                         function deleteAmbulanceDetails(ambulance_id) {
                                             $.confirm({
@@ -193,6 +198,8 @@
                                             });
                                         }
                                     </script>
+                                    <!-------script for delete ambulance ends-->
+
                                     <!-- Modal Ends Here-->
                                     </tr>
                                     <?php
@@ -206,14 +213,17 @@
                             <?php } ?>
                             </tbody>
                         </table>
+                        <!-- table starts here-->
                     </div>
-                </div></div>
-
+                </div>
+            </div>
+            <!--Div For show ambulances in table-->
         </div>
     </div>
+    <!--Main div ends here-->
 </div>
 <script>
-    //----------------jquery fun to submit the add Doctor form-----------------------------------//
+    //----------------jquery fun to submit the add ambulance form-----------------------------------//
     $("#addAmbulanceDetails").submit(function () {
         dataString = $("#addAmbulanceDetails").serialize(); //-----------get aall form variables in one variable using serialize function
         //alert(dataString);
@@ -228,7 +238,7 @@
                 //alert(data);
                 $('#message').html(data);
                 $('#submitForm').html('Save Ambulance Details');
-                location.reload();
+                //location.reload();
             }
         });
         return false; //stop the actual form post !important!

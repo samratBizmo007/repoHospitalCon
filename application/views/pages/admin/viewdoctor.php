@@ -1,16 +1,17 @@
 <title>Hospital Connectivity | View Doctors</title>
-
 <!-- page content -->
 <div class="right_col" role="main">
-
+    <!-- Main Div -->
     <div class="row x_title">
         <div class="w3-padding">
             <h3><i class="fa fa-user-md"></i> All Doctors</h3>
         </div>
     </div>
     <div id="messageinfo"></div>
+    <!-- doctor table starts here-->
     <div class="row clearfix" style=" margin-top: 5px;">
-        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12"    >
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            <!-- Table div starts here-->
             <table class="table table-responsive" id="tab_logic">
                 <thead>
                     <tr class="theme_bg">
@@ -38,14 +39,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    //print_r($doctors);
-                    //die();
+                    <?php     
                     if ($doctors != '') {
                         $i = 1;
                         $s = 0;
                         foreach ($doctors as $val) {
-                            //print_r($val);
                             ?>
                             <tr id="rowCount">
                                 <td class="w3-center"><?php echo $i ?></td>
@@ -140,6 +138,7 @@
                                 </div>
                             </form>
                         </div>
+                        <!-------script for update doctor-->
                         <script type="text/javascript">
                             $(function () {
                                 $("#updateDoctorsForm_<?php echo $val['doc_id']; ?>").submit(function (e) {
@@ -153,14 +152,14 @@
                                         success: function (data)
                                         {
                                             $.alert(data);
-                                            //$('#message').html(data);
                                         }
                                     });
                                     return false; //stop the actual form post !important!
                                 });
                             });
                         </script>
-                        <!-------script for update material-->
+                        <!-------script for update Doctor-->
+                        <!-------script for delete doctor-->
                         <script type="text/javascript">
                             function deleteDoctorDetails(doc_id) {
                                 $.confirm({
@@ -177,8 +176,6 @@
                                                 },
                                                 cache: false,
                                                 success: function (data) {
-                                                    // alert(data);
-                                                    //$.alert(data);
                                                     $('#messageinfo').html(data);
                                                 }
                                             });
@@ -189,6 +186,7 @@
                                 });
                             }
                         </script>
+                        <!-------script for delete doctor-->
                         <!-- Modal Ends Here-->
                         </tr>
                         <?php
@@ -199,9 +197,13 @@
                     <tr>
                         <td colspan="7" class="w3-center">No Records Found..!</td>
                     </tr>
-<?php } ?>
+                <?php } ?>
                 </tbody>
             </table>
+            <!-- Table div ends here-->
         </div>
     </div>
+    <!-- doctor table starts here-->
 </div>
+<!-- Main Div Ends Here-->
+

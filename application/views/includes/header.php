@@ -57,15 +57,15 @@ $admin_name = $this->session->userdata('admin_name');
                                 </li>                              
                                 <li><a class="w3-text-black"><i class="fa fa-user-md"></i> Doctor Section <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo base_url(); ?>admin/adddoctor" class="w3-text-black">Add Doctor</a></li>
-                                        <li><a href="<?php echo base_url(); ?>admin/viewdoctors" class="w3-text-black">View Doctors</a></li>
+                                        <li><a href="<?php echo base_url(); ?>admin/adddoctor" class="w3-text-black"><i class="fa fa-user-md"></i> Add Doctor</a></li>
+                                        <li><a href="<?php echo base_url(); ?>admin/viewdoctors" class="w3-text-black"><i class="fa fa-user-md"></i> View Doctors</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="<?php echo base_url(); ?>admin/addblood" class="w3-text-black"><i class="fa fa-tint"></i> Blood Section </a></li>
-                                <li><a class="w3-text-black"><i class="fa fa-hospital-o"></i> Organ Section <span class="fa fa-chevron-down"></span></a>
+                                <li><a class="w3-text-black"><i class="fa fa-wheelchair"></i> Organ Section <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo base_url(); ?>admin/addorgan">Add Organ Details</a></li>
-                                        <li><a href="<?php echo base_url(); ?>admin/vieworgans">View All Organs</a></li>
+                                        <li><a href="<?php echo base_url(); ?>admin/addorgan" class="w3-text-black"><i class="fa fa-wheelchair"></i> Add Organ Details</a></li>
+                                        <li><a href="<?php echo base_url(); ?>admin/vieworgans" class="w3-text-black"><i class="fa fa-wheelchair"></i>View All Organs</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="<?php echo base_url(); ?>admin/addambulance" class="w3-text-black"><i class="fa fa-ambulance"></i> Ambulance Section </a></li>

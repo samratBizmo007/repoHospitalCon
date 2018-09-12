@@ -1,13 +1,7 @@
 <title>Hospital Connectivity | Add Doctor</title>
-<style type="text/css">
-    #addProduct fieldset{
-        /*display: none;*/
-        margin-bottom: 16px
-    }
-</style>
 <!-- page content -->
 <div class="right_col" role="main">
-
+    <!-- Main div starts here -->
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="page_title">
@@ -16,8 +10,9 @@
                         <h3><i class="fa fa-plus-circle"></i> Add Doctor </h3>
                     </div>
                 </div>
-              
+
                 <div id="message"></div>
+                <!-- Form for add Doctor here -->
                 <form id="addDoctorDetails" name="addDoctorDetails">
                     <fieldset>
                         <h2>Doctor Details</h2><br>
@@ -39,8 +34,8 @@
                                     <label for="Hospital_name">Hospital Name<b class="w3-text-red w3-medium"> *</b> :</label>
                                     <select name="Hospital_name" class="form-control w3-small" id="Hospital_name">
                                         <option value="0" class="w3-text-grey w3-light-grey " selected>Please choose Hospital</option>
-                                        <?php foreach ($hospitals as $key) {   ?>
-                                        <option value="<?php echo $key['hosp_id']; ?>"><?php echo $key['hosp_name'];?></option>  
+                                        <?php foreach ($hospitals as $key) { ?>
+                                            <option value="<?php echo $key['hosp_id']; ?>"><?php echo $key['hosp_name']; ?></option>  
                                         <?php } ?>
                                     </select>
                                 </div>                                
@@ -67,10 +62,12 @@
                         </div>
                     </fieldset>
                 </form>
+                <!-- Form for add Doctor here -->
             </div>
         </div>
     </div>
 </div>
+<!-- Main div ends here -->
 <script>
     //----------------jquery fun to submit the add Doctor form-----------------------------------//
     $("#addDoctorDetails").submit(function () {
@@ -87,7 +84,7 @@
                 //alert(data);
                 $('#message').html(data);
                 $('#submitForm').html('Save Doctor');
-                location.reload();
+                //location.reload();
             }
         });
         return false; //stop the actual form post !important!

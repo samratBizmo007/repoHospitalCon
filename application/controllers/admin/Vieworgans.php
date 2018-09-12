@@ -8,9 +8,9 @@ class Vieworgans extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-        $this->load->model('admin/Organ_model');
+        $this->load->model('admin/Organ_model'); //------------load model for sql operations
         //start session		
-        $admin_name = $this->session->userdata('admin_name');
+        $admin_name = $this->session->userdata('admin_name'); //---------------session variable
 
         if ($admin_name == '') {
             redirect('admin/admin_login');
@@ -19,22 +19,29 @@ class Vieworgans extends CI_Controller {
 
     // main index function
     public function index() {
-        $data['organs'] = Vieworgans::getAllorgans();
-        $data['hospitals'] = Vieworgans::getAllHospitals();
+        $data['organs'] = Vieworgans::getAllorgans(); //------------fun for get all organs details
+        $data['hospitals'] = Vieworgans::getAllHospitals(); //--------------fun for get all hospital details
         $this->load->view('includes/header');
-        $this->load->view('pages/admin/vieworgan', $data);
+        $this->load->view('pages/admin/vieworgan', $data); //------------load view 
         $this->load->view('includes/footer');
     }
 
+//---------------fun for get all organs details------------------------------------//
     public function getAllorgans() {
         $result = $this->Organ_model->getAllorgans();
         return $result;
     }
 
+//---------------fun for get all organs details------------------------------------//
+//---------------fun for get all hospital details------------------------------------//
+
     public function getAllHospitals() {
         $result = $this->Organ_model->getAllHospitals();
         return $result;
     }
+
+//---------------fun for get all hospital details------------------------------------//
+//---------------fun for Update organ details------------------------------------//
 
     public function updateOrganDetails() {
         extract($_POST);
@@ -58,6 +65,9 @@ class Vieworgans extends CI_Controller {
             echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Organ Details Not Updated Successfully.</h4>';
         }
     }
+
+//---------------fun for Update organ details------------------------------------//
+//---------------fun for Delete organ details------------------------------------//
 
     public function deleteOrganDetails() {
         extract($_POST);
@@ -91,4 +101,5 @@ class Vieworgans extends CI_Controller {
         }
     }
 
+//---------------fun for Delete organ details------------------------------------//
 }

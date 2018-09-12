@@ -110,6 +110,7 @@
                                 </div>
                             </form>
                         </div>
+                        <!-------script for update organ-->
                         <script type="text/javascript">
                             $(function () {
                                 $("#updateOrganForm_<?php echo $val['organ_id']; ?>").submit(function (e) {
@@ -130,7 +131,8 @@
                                 });
                             });
                         </script>
-                        <!-------script for update material-->
+                        <!-------script for update organ-->
+                        <!-------script for Delete organ-->
                         <script type="text/javascript">
                             function deleteOrganDetails(organ_id) {
                                 $.confirm({

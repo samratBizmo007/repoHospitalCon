@@ -6,6 +6,7 @@ class Doctor_model extends CI_Model {
         parent::__construct();
     }
 
+//-------------------fun for save doctor details -----------------------------------//
     public function saveDoctorDetails($data) {
         extract($data);
         //print_r($data);die();
@@ -18,6 +19,9 @@ class Doctor_model extends CI_Model {
         }
     }
 
+//-------------------fun for save doctor details -----------------------------------//
+//-------------------fun for get all hospital details -----------------------------------//
+
     public function getAllHospitals() {
         $sql = "SELECT * FROM hospital_tab";
         $result = $this->db->query($sql);
@@ -28,6 +32,9 @@ class Doctor_model extends CI_Model {
         }
     }
 
+//-------------------fun for get all hospital details -----------------------------------//
+//-------------------fun for get all Doctor details -----------------------------------//
+
     public function getAllDoctors() {
         $sql = "SELECT * FROM doctor_tab as d JOIN hospital_tab as t on (d.hosp_id = t.hosp_id)";
         $result = $this->db->query($sql);
@@ -37,6 +44,9 @@ class Doctor_model extends CI_Model {
             return $result->result_array();
         }
     }
+
+//-------------------fun for get all Doctor details -----------------------------------//
+//-------------------fun for update doctor details -----------------------------------//
 
     public function updateDoctorDetails($data) {
         extract($data);
@@ -51,6 +61,9 @@ class Doctor_model extends CI_Model {
         }
     }
 
+//-------------------fun for update doctor details -----------------------------------//
+//-------------------fun for Delete doctor details -----------------------------------//
+
     public function deleteDoctorDetails($doc_id) {
         $sql = "DELETE FROM doctor_tab WHERE doc_id = '$doc_id'";
         $result = $this->db->query($sql);
@@ -61,4 +74,5 @@ class Doctor_model extends CI_Model {
         }
     }
 
+//-------------------fun for Delete doctor details -----------------------------------//
 }
