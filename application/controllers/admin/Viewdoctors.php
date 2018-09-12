@@ -43,17 +43,7 @@ class Viewdoctors extends CI_Controller {
         //die();
         $data = $_POST;
         if ($Hospital_name == 0) {
-            echo '<div class="alert alert-warning alert-dismissible fade in alert-fixed w3-round">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<strong>Warning!</strong> Please Select Valid Hospital Name.
-			</div>
-			<script>
-			window.setTimeout(function() {
-			$(".alert").fadeTo(500, 0).slideUp(500, function(){
-			$(this).remove(); 
-			});
-			}, 5000);
-			</script>';
+            echo '<h4 class="w3-text-red w3-margin"><i class="fa fa-warning"></i> Please Select Valid Hospital Name.</h4>';
             die();
         }
         $result = $this->Doctor_model->updateDoctorDetails($data);

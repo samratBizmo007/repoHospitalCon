@@ -1,11 +1,11 @@
-<title>Hospital Connectivity | View Doctors</title>
+<title>Hospital Connectivity | View Organs</title>
 
 <!-- page content -->
 <div class="right_col" role="main">
 
     <div class="row x_title">
         <div class="w3-padding">
-            <h3><i class="fa fa-user"></i> All Doctors</h3>
+            <h3><i class="fa fa-user"></i> All Organs</h3>
         </div>
     </div>
     <div id="messageinfo"></div>
