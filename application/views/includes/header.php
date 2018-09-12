@@ -4,7 +4,6 @@ $admin_name = $this->session->userdata('admin_name');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -21,7 +20,6 @@ $admin_name = $this->session->userdata('admin_name');
         <link href="<?php echo base_url(); ?>assets/build/css/style.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/build/css/dhtmlxcalendar.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/alert/jquery-confirm.css" rel="stylesheet">
-
         <!-- angular-->
         <script src="<?php echo base_url(); ?>assets/js/angular.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/angular-sanitize.js"></script>
@@ -31,7 +29,6 @@ $admin_name = $this->session->userdata('admin_name');
         <script src="<?php echo base_url(); ?>assets/js/dhtmlxcalendar_deprecated.js"></script>
     </head>
 </head>
-
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
@@ -118,15 +115,8 @@ $admin_name = $this->session->userdata('admin_name');
                                     <li><a href="<?php echo base_url(); ?>admin/admin_login/logoutAdmin"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                 </ul>
                             </li>
-
                         </ul>
                     </nav>
                 </div>
             </div>
-            <!-- /top navigation -->
 
-            <!--       </div>
-                </div>
-            
-              </body>
-              </html> -->
