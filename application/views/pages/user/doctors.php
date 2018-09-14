@@ -37,7 +37,7 @@
                   <td><?php echo $key['doc_email']; ?></td>
                   <td><?php echo strtoupper($key['doc_gender']); ?></td>
                   <td>
-                    <a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/hospital?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
+                    <a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/doctors_details?doc=<?php echo $key['doc_id']; ?>"><i class="fa fa-view"></i> view</a>
                     <a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/hospital?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-plane"></i> send</a>
                   </td>
                 </tr>

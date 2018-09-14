@@ -78,6 +78,18 @@ class Hospital_model extends CI_Model {
     }
 
 // ----------------function to get all hospital location details---------------------------//
+    // ----function for doctors detail page
+    public function getDoctorinfo($doc_id) {
+        $sql = "SELECT * FROM doctor_tab as d JOIN hospital_tab as h on (d.hosp_id = h.hosp_id) WHERE d.doc_id = '$doc_id'";
+        // print_r($sql); die();
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return FALSE;
+        } else {
+            return $result->result_array();
+        }
+    }
+    // ---------function end
 // ----------------function to get all Doctor details by hospital---------------------------//
 
     public function getAllDoctors_Details($hosp_id) {
