@@ -69,14 +69,14 @@ $usermail=$arr[2];
               foreach ($all_hospitals['status_message'] as $key) {            
                 ?>
                 <tr>
-                  <td><?php echo $count; ?></td>
-                  <td><?php echo $key['hosp_name']; ?></td>
-                  <td><?php echo strtoupper($key['hosp_location']); ?></td>
-                  <td><?php echo $key['hosp_addr']; ?></td>
-                  <td><?php echo $key['hosp_number']; ?></td>
-                  <td><?php echo $key['hosp_email']; ?></td>
-                  <td>
-                    <a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/hospital?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
+                    <td class="w3-center"><?php echo $count; ?></td>
+                  <td class="w3-center"><?php echo $key['hosp_name']; ?></td>
+                  <td class="w3-center"><?php echo strtoupper($key['hosp_location']); ?></td>
+                  <td class="w3-center"><?php echo $key['hosp_addr']; ?></td>
+                  <td class="w3-center"><?php echo $key['hosp_number']; ?></td>
+                  <td class="w3-center"><?php echo $key['hosp_email']; ?></td>
+                  <td class="w3-center">
+                    <a class="btn w3-text-blue" style="padding:0 " href="<?php echo base_url(); ?>user/hospitals?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
                   </td>
                 </tr>
                 <?php 
