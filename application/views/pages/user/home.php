@@ -1,4 +1,9 @@
 
+<?php 
+$user_session=$this->session->userdata('user_session');
+$arr=explode('|', $user_session);
+$usermail=$arr[2];
+?>
 <div class="container" style="margin-top: 60px">
   <div class="col-lg-3">
     <a href="<?php echo base_url(); ?>user/doctors" class="btn w3-col l12 w3-round-large w3-card-2 w3-margin-bottom" style="height: 210px;">
@@ -51,8 +56,9 @@
               <th class="w3-center">Sr No.</th>
               <th class="w3-center">Hospital Name</th>
               <th class="w3-center">Area</th>
-              <th class="w3-center">Hospital Address</th>
+              <th class="w3-center">Address</th>
               <th class="w3-center">Contact No.</th>
+              <th class="w3-center">Email</th>
               <th class="w3-center">Action</th>
             </tr>
           </thead>
@@ -68,6 +74,7 @@
                   <td><?php echo strtoupper($key['hosp_location']); ?></td>
                   <td><?php echo $key['hosp_addr']; ?></td>
                   <td><?php echo $key['hosp_number']; ?></td>
+                  <td><?php echo $key['hosp_email']; ?></td>
                   <td>
                     <a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/hospital?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
                   </td>
@@ -79,7 +86,7 @@
             else{
               ?>
               <tr>
-                <td colspan="6" class="w3-center">
+                <td colspan="7" class="w3-center">
                   <span> No Hospital Found </span>
                 </td>              
               </tr>
