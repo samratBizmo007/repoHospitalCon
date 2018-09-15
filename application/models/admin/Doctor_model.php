@@ -78,7 +78,7 @@ class Doctor_model extends CI_Model {
 
     // get doctors records on filter
     public function filterDoctor($query_string){
-        $sql="SELECT * FROM hospital_tab, doctor_tab WHERE doctor_tab.hosp_id=hospital_tab.hosp_id AND hospital_tab.hosp_location LIKE '$query_string%' OR doctor_tab.doc_name LIKE '$query_string%' OR doctor_tab.doc_degree LIKE '$query_string%' OR doctor_tab.doc_gender LIKE '$query_string%'";
+        $sql="SELECT * FROM doctor_tab as doc JOIN hospital_tab as hosp on (doc.hosp_id = hosp.hosp_id) WHERE hosp.hosp_location LIKE '$query_string%' OR doc.doc_name LIKE '$query_string%' OR doc.doc_degree LIKE '$query_string%' OR doc.doc_gender LIKE '$query_string%'";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(

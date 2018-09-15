@@ -79,7 +79,7 @@ class Organ_model extends CI_Model {
 
     // get organ records on filter
     public function filterOrgan($query_string){
-        $sql="SELECT * FROM hospital_tab, organ_tab WHERE organ_tab.hosp_id=hospital_tab.hosp_id AND hospital_tab.hosp_location LIKE '$query_string%' OR hospital_tab.hosp_name LIKE '$query_string%' OR organ_tab.organ_name LIKE '$query_string%' ";
+        $sql="SELECT * FROM organ_tab as org JOIN hospital_tab as hosp on (org.hosp_id = hosp.hosp_id) WHERE hosp.hosp_location LIKE '$query_string%' OR hosp.hosp_name LIKE '$query_string%' OR org.organ_name LIKE '$query_string%' ";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(

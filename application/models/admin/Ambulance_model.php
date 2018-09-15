@@ -79,7 +79,7 @@ class Ambulance_model extends CI_Model {
 
     // get ambulance records on filter
     public function filterAmbulance($query_string){
-        $sql="SELECT * FROM hospital_tab, ambulance_tab WHERE ambulance_tab.hosp_id=hospital_tab.hosp_id AND hospital_tab.hosp_location LIKE '$query_string%' OR hospital_tab.hosp_name LIKE '$query_string%' ";
+        $sql="SELECT * FROM ambulance_tab as amb JOIN hospital_tab as hosp on (amb.hosp_id = hosp.hosp_id) WHERE hosp.hosp_location LIKE '$query_string%' OR hosp.hosp_name LIKE '$query_string%' ";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(

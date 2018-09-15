@@ -78,7 +78,7 @@ class Blood_model extends CI_Model {
 
     // get blood records on filter
     public function filterBlood($query_string){
-        $sql="SELECT * FROM blood_tab as o JOIN hospital_tab as t on (o.hosp_id = t.hosp_id) WHERE t.hosp_location LIKE '$query_string%' OR t.hosp_name LIKE '$query_string%' OR o.blood_group LIKE '$query_string%' ";
+        $sql="SELECT * FROM blood_tab as bld JOIN hospital_tab as hosp on (bld.hosp_id = hosp.hosp_id) WHERE hosp.hosp_location LIKE '$query_string%' OR hosp.hosp_name LIKE '$query_string%' OR bld.blood_group LIKE '$query_string%' ";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(
@@ -94,7 +94,7 @@ class Blood_model extends CI_Model {
 
     // get all blood for home
     public function getAllBloodHome() {
-        $sql = "SELECT * FROM hospital_tab, blood_tab WHERE blood_tab.hosp_id=hospital_tab.hosp_id";
+        $sql = "SELECT * FROM blood_tab as o JOIN hospital_tab as t on (o.hosp_id = t.hosp_id)";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             $response = array(
