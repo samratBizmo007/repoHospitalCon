@@ -7,6 +7,16 @@
             <h3><i class="fa fa-user-md"></i> All Doctors</h3>
         </div>
     </div>
+    <div class="row x_title">
+        <div class="col-lg-12 w3-padding">
+            <div class="col-lg-4">
+                <a href="<?php echo base_url();?>admin/viewdoctors/ExportToPdf_File" target="_blank" type="button" name="exportToPdf" id="exportToPdf" title="Export To Pdf" class="w3-left w3-hover-text-white btn w3-text-black" style=" background-color: #FFAF00;"> Export To PDF </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="<?php echo base_url();?>admin/viewdoctors/ExportToCsv_File" type="button" name="exportToCsv" id="exportToCsv" title="Export To Csv" class="w3-left w3-hover-text-white btn w3-text-black" style=" background-color: #FFAF00;"> Export To CSV </a>
+            </div>
+        </div>
+    </div>
     <div id="messageinfo"></div>
     <!-- doctor table starts here-->
     <div class="row clearfix" style=" margin-top: 5px;">
@@ -39,7 +49,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php     
+                    <?php
                     if ($doctors != '') {
                         $i = 1;
                         $s = 0;

@@ -107,5 +107,15 @@ class Doctor_model extends CI_Model {
         }
         return $response;
     }
-
+//--------------fun for get doctor details to csv
+    public function getAllDoctorsData(){
+        $sql = "SELECT d.doc_name,d.doc_email,d.doc_degree,d.doc_gender,t.hosp_name FROM doctor_tab as d JOIN hospital_tab as t on (d.hosp_id = t.hosp_id)";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return FALSE;
+        } else {
+            return $result->result_array();
+        }
+    }
+    
 }
