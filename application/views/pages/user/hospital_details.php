@@ -16,11 +16,11 @@
 
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <?php
-                if ($doctors == '') {
+                if ($hospitals == '') {
                     // echo 'No Doctors Found';
                 } else {
                    // print_r($doctors);
-                    foreach ($doctors as $key) {            
+                    foreach ($hospitals as $key) {            
                 ?>
                     <h2><b><?php echo $key['hosp_name']; ?></b></h2>
                     <h4><b><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $key['hosp_location']; ?></i></b></h4>

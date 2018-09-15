@@ -89,6 +89,7 @@ class Hospital_model extends CI_Model {
             return $result->result_array();
         }
     }
+
     // ---------function end
 // ----------------function to get all Doctor details by hospital---------------------------//
 
@@ -143,4 +144,14 @@ class Hospital_model extends CI_Model {
     }
 
 // ----------------function to get all Ambulance details by hospital---------------------------//
+    public function getAllHospital_Details($hosp_id) {
+        $sql = "SELECT * FROM hospital_tab WHERE hosp_id = '$hosp_id'";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            return FALSE;
+        } else {
+            return $result->result_array();
+        }
+    }
+
 }

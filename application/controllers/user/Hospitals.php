@@ -23,6 +23,7 @@ class Hospitals extends CI_Controller {
         extract($_GET);
         //print_r($_GET);die();
         //$hosp_id = $hospital;
+        $data['hospitals'] = Hospitals::getAllHospital_Details($hospital); //------------fun for get all doctors
         $data['doctors'] = Hospitals::getAllDoctors_Details($hospital); //------------fun for get all doctors
         $data['blood'] = Hospitals::getAllBlood_Details($hospital); //-------------fun for get all blood
         $data['organs'] = Hospitals::getAllOrgans_Details($hospital); //-------------fun for get all organs
@@ -33,6 +34,14 @@ class Hospitals extends CI_Controller {
         //$this->load->view('includes/footer');
     }
 
+//-----------------------fun for get all hospial Details------------------------------------//
+
+    public function getAllHospital_Details($hosp_id) {
+        $result = $this->Hospital_model->getAllHospital_Details($hosp_id);
+        return $result;
+    }
+
+//-----------------------fun for get all hospial Details------------------------------------//
 //-----------------------fun for get all doctors for the hospital------------------------------------//
     public function getAllDoctors_Details($hosp_id) {
         //print_r($hosp_id);die();
