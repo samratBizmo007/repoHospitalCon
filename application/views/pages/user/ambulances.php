@@ -20,6 +20,7 @@
      </form>     
    </div>
    <div class="w3-col l12" id="ambulance_tab">
+    <div id="message_div"></div>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -46,7 +47,7 @@
               <td class="w3-center"><?php echo $key['hosp_number']; ?></td>
               <td class="w3-center"><?php echo $key['hosp_email']; ?></td>
               <td class="w3-center">
-                <a class="btn w3-red" style="padding:3px 5px" onclick="sendMail('<?php echo $key['hosp_email']; ?>','ambulance');">send mail</a>
+                <a class="btn mail w3-red" style="padding:3px 5px" onclick="sendMail('<?php echo $key['hosp_email']; ?>','ambulance','as early as possible');">send mail</a>
               </td>
             </tr>
             <?php 

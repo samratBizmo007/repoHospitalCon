@@ -26,6 +26,7 @@ $usermail=$arr[2];
   <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/const.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/common.js"></script>
   <script src="<?php echo base_url(); ?>assets/alert/jquery-confirm.js"></script>
   <style type="text/css">  
   .box_shadow{
@@ -59,6 +60,16 @@ $usermail=$arr[2];
   .selected{
     background-color: #E89800;
   }
+  .alert-fixed {
+    position:fixed; 
+    top: 0px; 
+    right: 0px; 
+    margin: 10px;
+    /*width: 100px;*/
+    z-index:9999; 
+    float: right;
+    border-radius:0px
+}
 </style>
 </head>
 <body>

@@ -21,6 +21,7 @@
 
    </div>
    <div class="w3-col l12" id="doctor_tab">
+    <div id="message_div"></div>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -50,7 +51,7 @@
               <td class="w3-center"><?php echo strtoupper($key['doc_gender']); ?></td>
               <td class="w3-center">
                 <a class="btn w3-blue" style="padding:3px 5px " href="<?php echo base_url(); ?>user/doctors_details?doc=<?php echo $key['doc_id']; ?>"><i class="fa fa-view"></i> view</a>
-                <a class="btn w3-red" style="padding:3px 5px " href="<?php echo base_url(); ?>user/hospital?hospital=<?php echo $key['hosp_id']; ?>">send mail</a>
+                <a class="btn mail w3-red" style="padding:3px 5px " onclick="sendMail('<?php echo $key['doc_email']; ?>','doctor','quick consultancy');">send mail</a>
               </td>
             </tr>
             <?php 

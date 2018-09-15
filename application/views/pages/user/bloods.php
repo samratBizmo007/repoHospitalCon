@@ -25,6 +25,7 @@ $usermail=$arr[2];
 
    </div>
    <div class="w3-col l12" id="blood_tab">
+    <div id="message_div"></div>
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -53,7 +54,7 @@ $usermail=$arr[2];
               <td class="w3-center"><?php echo $key['hosp_number']; ?></td>
               <td class="w3-center"><?php echo $key['hosp_email']; ?></td>
               <td class="w3-center">
-                <a class="btn w3-red" style="padding:3px 5px" onclick="sendMail('<?php echo $key['hosp_email']; ?>','blood');">send nail</a>
+                <button class="btn mail w3-red" style="padding:3px 5px" onclick="sendMail('<?php echo $key['hosp_email']; ?>','blood','<?php echo $key['blood_group']; ?>');">send mail</button>
               </td>
             </tr>
             <?php 
@@ -77,10 +78,5 @@ $usermail=$arr[2];
 </div>
 
 </div>
-<script type="text/javascript">
-  function sendMail(email,feature){
-
-  }
-</script>
 </body>
 </html>

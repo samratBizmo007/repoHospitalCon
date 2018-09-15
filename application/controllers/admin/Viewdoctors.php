@@ -99,7 +99,7 @@ class Viewdoctors extends CI_Controller {
 //        // Print text using writeHTMLCell()
 //        $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
         // column titles
-        $header = array('Sr.', 'Doctor Name', 'Doctor Email', 'Degree', 'Gender', 'Hospital');
+        $header = array('Sr.', 'Doctor Name', 'Hospital', 'Degree', 'Email');
 
         // Colors, line width and bold font
         $pdf->SetFillColor(255, 0, 0);
@@ -108,7 +108,7 @@ class Viewdoctors extends CI_Controller {
         $pdf->SetLineWidth(0.3);
         $pdf->SetFont('', 'B');
         // Header
-        $w = array(10, 75, 25, 25, 25, 28);
+        $w = array(10, 55, 55, 18, 55);
         $num_headers = count($header);
         for ($i = 0; $i < $num_headers; ++$i) {
             $pdf->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -138,10 +138,9 @@ class Viewdoctors extends CI_Controller {
 
                 $pdf->Cell($w[0], 6, $count . '.', 'LR', 0, 'C', $fill);
                 $pdf->Cell($w[1], 6, $row['doc_name'], 'LR', 0, 'C', $fill);
-                $pdf->Cell($w[2], 6, $row['doc_email'], 'LR', 0, 'C', $fill);
+                $pdf->Cell($w[2], 6, $row['hosp_name'], 'LR', 0, 'C', $fill);
                 $pdf->Cell($w[3], 6, $row['doc_degree'], 'LR', 0, 'C', $fill);
-                $pdf->Cell($w[4], 6, $row['doc_gender'], 'LR', 0, 'C', $fill);
-                $pdf->Cell($w[5], 6, $row['hosp_name'], 'LR', 0, 'C', $fill);
+                $pdf->Cell($w[4], 6, $row['doc_email'], 'LR', 0, 'C', $fill);
 
                 $pdf->Ln();
                 $fill = !$fill;
@@ -154,8 +153,8 @@ class Viewdoctors extends CI_Controller {
         // ---------------------------------------------------------
         // close and output PDF document
         ob_end_clean();
-        $tarikh = date('Ydm h:i:s a', time());
-        $pdf->Output('Doctors_List_' . $tarikh . '.pdf', 'I');
+        $pdf_date = date('Ydm h:i:s a', time());
+        $pdf->Output('Doctors_List_' . $pdf_date . '.pdf', 'I');
     }
 
     // function to download db data in csv file----------------------//
@@ -164,8 +163,8 @@ class Viewdoctors extends CI_Controller {
         $result = $this->Doctor_model->getAllDoctorsData();
 
         // file name 
-        $tarikh = date('Ydm h:i:s a', time());
-        $filename = 'Doctorslist_' . $tarikh . '.csv';
+        $csv_date = date('Ydm h:i:s a', time());
+        $filename = 'Doctorslist_' . $csv_date . '.csv';
         header("Content-Description: File Transfer");
         header("Content-Disposition: attachment; filename=$filename");
         header("Content-Type: application/csv; ");
