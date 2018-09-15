@@ -153,5 +153,6 @@ class Hospital_model extends CI_Model {
             return $result->result_array();
         }
     }
+// ----------------function to get all Ambulance details by hospital---------------------------//
 
 }

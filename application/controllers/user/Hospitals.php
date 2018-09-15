@@ -23,7 +23,7 @@ class Hospitals extends CI_Controller {
         extract($_GET);
         //print_r($_GET);die();
         //$hosp_id = $hospital;
-        $data['hospitals'] = Hospitals::getAllHospital_Details($hospital); //------------fun for get all doctors
+        $data['hospitals'] = Hospitals::getAllHospital_Details($hospital); //------------fun for get all Hospitals
         $data['doctors'] = Hospitals::getAllDoctors_Details($hospital); //------------fun for get all doctors
         $data['blood'] = Hospitals::getAllBlood_Details($hospital); //-------------fun for get all blood
         $data['organs'] = Hospitals::getAllOrgans_Details($hospital); //-------------fun for get all organs
