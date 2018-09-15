@@ -67,7 +67,7 @@ $usermail=$arr[2];
   ?>
   <div class="container box_shadow w3-text-white">
     <div class="w3-col l10 w3-padding">
-      <a href="#">
+      <a href="<?php echo base_url(); ?>user/home">
        <span class="w3-xlarge"><b><i class="fa fa-heartbeat w3-xxxlarge w3-hide-small" style="color: #8B0000"></i> Hospital Connectivity</b></span>
      </a>
    </div>

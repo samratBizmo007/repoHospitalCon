@@ -87,7 +87,7 @@ $usermail=$arr[2];
               <td class="w3-center"><?php echo $key['hosp_number']; ?></td>
               <td class="w3-center"><?php echo $key['hosp_email']; ?></td>
               <td class="w3-center">
-                <a class="btn w3-text-blue" style="padding:0 " href="<?php echo base_url(); ?>user/hospitals?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
+                <a class="btn w3-blue" style="padding:3px 5px" href="<?php echo base_url(); ?>user/hospitals?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
               </td>
             </tr>
             <?php 

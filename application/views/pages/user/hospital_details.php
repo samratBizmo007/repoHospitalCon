@@ -70,8 +70,8 @@
                 ?>
                 <tr>
                 
-                  <td><?php echo $key['doc_name']; ?></td>
-                 <td><a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/doctors_details?doc=<?php echo $key['doc_id']; ?>"><i class="fa fa-eye"></i> view</a></td>
+                  <td  class="w3-center"><?php echo $key['doc_name']; ?></td>
+                 <td  class="w3-center"><a class="btn w3-blue" style="padding:3px 5px" href="<?php echo base_url(); ?>user/doctors_details?doc=<?php echo $key['doc_id']; ?>">view</a></td>
                  
                 </tr>
                 <?php 
@@ -111,8 +111,8 @@
               foreach ($blood as $key) {            
                 ?>
                 <tr>
-                  <td><?php echo $key['blood_group']; ?></td>
-                  <td><?php echo $key['blood_quantity']; ?></td>
+                  <td class="w3-center"><?php echo $key['blood_group']; ?></td>
+                  <td class="w3-center"><?php echo $key['blood_quantity']; ?></td>
                 </tr>
                 <?php 
                 $count++;
@@ -150,8 +150,8 @@
               foreach ($organs as $key) {            
                 ?>
                 <tr>
-                  <td><?php echo $key['organ_name']; ?></td>
-                  <td><?php echo $key['organ_quantity']; ?></td>
+                  <td class="w3-center"><?php echo $key['organ_name']; ?></td>
+                  <td class="w3-center"><?php echo $key['organ_quantity']; ?></td>
                 </tr>
                 <?php 
                 $count++;

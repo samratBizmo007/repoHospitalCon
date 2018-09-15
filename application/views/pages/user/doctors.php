@@ -41,16 +41,16 @@
           foreach ($all_doctors['status_message'] as $key) {  
             ?>
             <tr>
-              <td><?php echo $count; ?></td>
-              <td><?php echo $key['doc_name']; ?></td>
-              <td><?php echo $key['hosp_name']; ?></td>
-              <td><?php echo strtoupper($key['hosp_location']); ?></td>
-              <td><?php echo $key['doc_degree']; ?></td>
-              <td><?php echo $key['doc_email']; ?></td>
-              <td><?php echo strtoupper($key['doc_gender']); ?></td>
-              <td>
-                <a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/doctors_details?doc=<?php echo $key['doc_id']; ?>"><i class="fa fa-view"></i> view</a>
-                <a class="btn" style="padding:0 " href="<?php echo base_url(); ?>user/hospital?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-plane"></i> send</a>
+              <td class="w3-center"><?php echo $count; ?></td>
+              <td class="w3-center"><?php echo $key['doc_name']; ?></td>
+              <td class="w3-center"><?php echo $key['hosp_name']; ?></td>
+              <td class="w3-center"><?php echo strtoupper($key['hosp_location']); ?></td>
+              <td class="w3-center"><?php echo $key['doc_degree']; ?></td>
+              <td class="w3-center"><?php echo $key['doc_email']; ?></td>
+              <td class="w3-center"><?php echo strtoupper($key['doc_gender']); ?></td>
+              <td class="w3-center">
+                <a class="btn w3-blue" style="padding:3px 5px " href="<?php echo base_url(); ?>user/doctors_details?doc=<?php echo $key['doc_id']; ?>"><i class="fa fa-view"></i> view</a>
+                <a class="btn w3-red" style="padding:3px 5px " href="<?php echo base_url(); ?>user/hospital?hospital=<?php echo $key['hosp_id']; ?>">send mail</a>
               </td>
             </tr>
             <?php 

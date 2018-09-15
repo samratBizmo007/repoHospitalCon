@@ -39,14 +39,14 @@
           foreach ($all_ambulances['status_message'] as $key) {            
             ?>
             <tr>
-              <td><?php echo $count; ?></td>
-              <td><?php echo $key['hosp_name']; ?></td>
-              <td><?php echo strtoupper($key['hosp_location']); ?></td>
-              <td><?php echo $key['ambulance_quantity']; ?></td>
-              <td><?php echo $key['hosp_number']; ?></td>
-              <td><?php echo $key['hosp_email']; ?></td>
-              <td>
-                <a class="btn" style="padding:0 " onclick="sendMail('<?php echo $usermail; ?>','ambulance');"><i class="fa fa-plane"></i> send</a>
+              <td class="w3-center"><?php echo $count; ?></td>
+              <td class="w3-center"><?php echo $key['hosp_name']; ?></td>
+              <td class="w3-center"><?php echo strtoupper($key['hosp_location']); ?></td>
+              <td class="w3-center"><?php echo $key['ambulance_quantity']; ?></td>
+              <td class="w3-center"><?php echo $key['hosp_number']; ?></td>
+              <td class="w3-center"><?php echo $key['hosp_email']; ?></td>
+              <td class="w3-center">
+                <a class="btn w3-red" style="padding:3px 5px" onclick="sendMail('<?php echo $key['hosp_email']; ?>','ambulance');">send mail</a>
               </td>
             </tr>
             <?php 
