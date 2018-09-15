@@ -153,6 +153,7 @@ class Hospital_model extends CI_Model {
             return $result->result_array();
         }
     }
+// ----------------function to get all Ambulance details by hospital---------------------------//
 
     // get hospital records on filter
     public function filterHospital($query_string){
