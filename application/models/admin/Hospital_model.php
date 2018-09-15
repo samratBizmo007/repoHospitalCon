@@ -154,4 +154,19 @@ class Hospital_model extends CI_Model {
         }
     }
 
+    // get hospital records on filter
+    public function filterHospital($query_string){
+        $sql = "SELECT * FROM hospital_tab WHERE hosp_location LIKE '$query_string%' OR hosp_name LIKE '$query_string%' ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            $response = array(
+                'status' => 500,
+                'status_message' => 'No data found.');
+        } else {
+            $response = array(
+                'status' => 200,
+                'status_message' => $result->result_array());
+        }
+        return $response;
+    }
 }

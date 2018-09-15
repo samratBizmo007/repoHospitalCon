@@ -74,4 +74,5 @@ class Hospitals extends CI_Controller {
     }
 
 //-----------------------fun for get all ambulance for the hospital------------------------------------//
+
 }

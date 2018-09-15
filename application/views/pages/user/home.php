@@ -47,57 +47,69 @@ $usermail=$arr[2];
 
     <div class="w3-col l12 w3-margin-top">
       <div class="w3-col l4 w3-margin-bottom">
-        <input type="text" name="search_hospital" class="w3-input w3-border" placeholder="search by name, area, etc.">
-      </div>
-      <div class="w-col l12">
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th class="w3-center">Sr No.</th>
-              <th class="w3-center">Hospital Name</th>
-              <th class="w3-center">Area</th>
-              <th class="w3-center">Address</th>
-              <th class="w3-center">Contact No.</th>
-              <th class="w3-center">Email</th>
-              <th class="w3-center">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php 
-            if($all_hospitals!='' && $all_hospitals['status']=='200'){
-              $count=1;
-              foreach ($all_hospitals['status_message'] as $key) {            
-                ?>
-                <tr>
-                    <td class="w3-center"><?php echo $count; ?></td>
-                  <td class="w3-center"><?php echo $key['hosp_name']; ?></td>
-                  <td class="w3-center"><?php echo strtoupper($key['hosp_location']); ?></td>
-                  <td class="w3-center"><?php echo $key['hosp_addr']; ?></td>
-                  <td class="w3-center"><?php echo $key['hosp_number']; ?></td>
-                  <td class="w3-center"><?php echo $key['hosp_email']; ?></td>
-                  <td class="w3-center">
-                    <a class="btn w3-text-blue" style="padding:0 " href="<?php echo base_url(); ?>user/hospitals?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
-                  </td>
-                </tr>
-                <?php 
-                $count++;
-              }
-            }
-            else{
-              ?>
-              <tr>
-                <td colspan="7" class="w3-center">
-                  <span> No Hospital Found </span>
-                </td>              
-              </tr>
-              <?php
-            }
+        <form method="GET" action="#hospital_tab">
+        <!-- seacrh input -->
+        <input type="hidden" name="valid" value="true">
+        <div class = "input-group">
+          <input type="text" name="search_hospital" class="form-control" placeholder="search by name, area, etc." value="<?php if(isset($_GET['search_hospital']) && $_GET['search_hospital']!=''){ echo $_GET['search_hospital'];} ?>">
+         <span class = "input-group-btn">
+          <button class = "btn btn-primary" type="submit">
+           <i class="fa fa-search"></i> Search
+         </button>
+       </span>       
+     </div>
+   </form>
+
+   </div>
+   <div class="w3-col l12" id="hospital_tab">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th class="w3-center">Sr No.</th>
+          <th class="w3-center">Hospital Name</th>
+          <th class="w3-center">Area</th>
+          <th class="w3-center">Address</th>
+          <th class="w3-center">Contact No.</th>
+          <th class="w3-center">Email</th>
+          <th class="w3-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php 
+        if($all_hospitals!='' && $all_hospitals['status']=='200'){
+          $count=1;
+          foreach ($all_hospitals['status_message'] as $key) {            
             ?>
-          </tbody>
-        </table>
-      </div>
-    </div>
+            <tr>
+              <td class="w3-center"><?php echo $count; ?></td>
+              <td class="w3-center"><?php echo $key['hosp_name']; ?></td>
+              <td class="w3-center"><?php echo strtoupper($key['hosp_location']); ?></td>
+              <td class="w3-center"><?php echo $key['hosp_addr']; ?></td>
+              <td class="w3-center"><?php echo $key['hosp_number']; ?></td>
+              <td class="w3-center"><?php echo $key['hosp_email']; ?></td>
+              <td class="w3-center">
+                <a class="btn w3-text-blue" style="padding:0 " href="<?php echo base_url(); ?>user/hospitals?hospital=<?php echo $key['hosp_id']; ?>"><i class="fa fa-view"></i> view</a>
+              </td>
+            </tr>
+            <?php 
+            $count++;
+          }
+        }
+        else{
+          ?>
+          <tr>
+            <td colspan="7" class="w3-center">
+              <span> No Hospital Found </span>
+            </td>              
+          </tr>
+          <?php
+        }
+        ?>
+      </tbody>
+    </table>
   </div>
+</div>
+</div>
 
 </div>
 </body>

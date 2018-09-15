@@ -6,7 +6,15 @@
 
     <div class="w3-col l12 w3-margin-top">
       <div class="w3-col l4 w3-margin-bottom">
-        <input type="text" name="search_doctor" class="w3-input w3-border" placeholder="search by name, area, degree, gender, etc.">
+        <!-- seacrh input -->
+        <div class = "input-group">
+         <input type="text" name="search_doctor" class="form-control" placeholder="search by name, area, degree, gender, etc.">
+         <span class = "input-group-btn">
+          <button class = "btn btn-default" type = "button">
+           <i class="fa fa-search"></i> Search
+         </button>
+       </span>       
+     </div>
       </div>
       <div class="w-col l12">
         <table class="table table-striped table-bordered">

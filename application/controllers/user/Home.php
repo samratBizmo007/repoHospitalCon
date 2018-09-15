@@ -14,7 +14,14 @@ class Home extends CI_Controller {
 		}
 		// get all hospital details
 		$this->load->model('admin/hospital_model');
-		$data['all_hospitals'] = $this->hospital_model->getHospitalDetails();
+		if(isset($_GET['search_hospital']) && $_GET['search_hospital']!='' && isset($_GET['valid']) && $_GET['valid']=='true'){
+			extract($_GET);
+            $data['all_hospitals'] = $this->hospital_model->filterHospital($search_hospital); //------------fun for get all hospital on filter search
+        }
+        else{
+            $data['all_hospitals'] = $this->hospital_model->getHospitalDetails(); //------------fun for get all hospitals
+        }
+		
 
 		$this->load->view('includes/user_header',$data);
 		$this->load->view('pages/user/home',$data);
