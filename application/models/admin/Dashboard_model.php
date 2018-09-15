@@ -7,7 +7,7 @@ class Dashboard_model extends CI_Model {
     }
 
     public function getAllHospital_Count() {
-        $sql = "SELECT count(*) FROM hospital_tab";
+        $sql = "SELECT count(*) as hospitalcount FROM hospital_tab";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return FALSE;
@@ -17,7 +17,7 @@ class Dashboard_model extends CI_Model {
     }
 
     public function getAllDoctors_Count() {
-        $sql = "SELECT count(*) FROM doctor_tab";
+        $sql = "SELECT count(*) as doctorcount FROM doctor_tab";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return FALSE;
@@ -27,7 +27,7 @@ class Dashboard_model extends CI_Model {
     }
 
     public function getAllBlood_Count() {
-        $sql = "SELECT count(*) FROM blood_tab";
+        $sql = "SELECT count(*) as bloodcount FROM blood_tab";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return FALSE;
@@ -37,7 +37,7 @@ class Dashboard_model extends CI_Model {
     }
 
     public function getAllOrgans_Count() {
-        $sql = "SELECT count(*) FROM organs_tab";
+        $sql = "SELECT count(*) as organcount FROM organ_tab";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return FALSE;
@@ -47,7 +47,7 @@ class Dashboard_model extends CI_Model {
     }
 
     public function getAllAmbulance_Count() {
-        $sql = "SELECT count(*) FROM ambulance_tab";
+        $sql = "SELECT count(*) as ambulancecount FROM ambulance_tab";
         $result = $this->db->query($sql);
         if ($result->num_rows() <= 0) {
             return FALSE;

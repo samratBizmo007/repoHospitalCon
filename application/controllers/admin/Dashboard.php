@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller {
         $data['organs'] = Dashboard::getAllOrgans_Count(); //-------------fun for get all organs
         $data['ambulance'] = Dashboard::getAllAmbulance_Count(); //------------fun for get all ambulance
         $this->load->view('includes/header');
-        $this->load->view('pages/admin/dashboard'); //---------load view
+        $this->load->view('pages/admin/dashboard',$data); //---------load view
         $this->load->view('includes/footer');
     }
 
