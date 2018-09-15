@@ -59,7 +59,6 @@ $usermail=$arr[2];
        </span>       
      </div>
    </form>
-
    </div>
    <div class="w3-col l12" id="hospital_tab">
     <table class="table table-striped table-bordered">

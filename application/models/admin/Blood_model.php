@@ -91,4 +91,20 @@ class Blood_model extends CI_Model {
         }
         return $response;
     }
+
+    // get all blood for home
+    public function getAllBloodHome() {
+        $sql = "SELECT * FROM blood_tab as o JOIN hospital_tab as t on (o.hosp_id = t.hosp_id)";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            $response = array(
+                'status' => 500,
+                'status_message' => 'No data found.');
+        } else {
+            $response = array(
+                'status' => 200,
+                'status_message' => $result->result_array());
+        }
+        return $response;
+    }
 }

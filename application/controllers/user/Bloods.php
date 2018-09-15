@@ -12,10 +12,16 @@ class Bloods extends CI_Controller {
 		if((!isset($user_session)) || ($user_session=='')){
 			redirect('/');
 		}
-		
+
 		// get all hospital details
 		$this->load->model('admin/blood_model');
-		$data['all_bloods'] = $this->blood_model->getAllBlood();
+		if(isset($_GET['search_blood']) && $_GET['search_blood']!='' && isset($_GET['valid']) && $_GET['valid']=='true'){
+			extract($_GET);
+            $data['all_bloods'] = $this->blood_model->filterBlood($search_blood); //------------fun for get all blood on filter search
+        }
+        else{
+            $data['all_bloods'] = $this->blood_model->getAllBloodHome(); //------------fun for get all blood
+        }
 
 		$this->load->view('includes/user_header',$data);
 		$this->load->view('pages/user/bloods',$data);

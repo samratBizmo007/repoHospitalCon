@@ -6,17 +6,20 @@
 
     <div class="w3-col l12 w3-margin-top">
       <div class="w3-col l4 w3-margin-bottom">
+       <form method="GET" action="#ambulance_tab">
         <!-- seacrh input -->
+        <input type="hidden" name="valid" value="true">
         <div class = "input-group">
-         <input type="text" name="search_ambulance" class="form-control" placeholder="search by area, hospital, etc.">
-         <span class = "input-group-btn">
-          <button class = "btn btn-default" type = "button">
-           <i class="fa fa-search"></i> Search
-         </button>
-       </span>       
-     </div>
+          <input type="text" name="search_ambulance" class="form-control" placeholder="search by area, hospital, etc." value="<?php if(isset($_GET['search_ambulance']) && $_GET['search_ambulance']!=''){ echo $_GET['search_ambulance'];} ?>">
+          <span class = "input-group-btn">
+            <button class = "btn btn-primary" type="submit">
+             <i class="fa fa-search"></i> Search
+           </button>
+         </span>       
+       </div>
+     </form>     
    </div>
-   <div class="w-col l12">
+   <div class="w3-col l12" id="ambulance_tab">
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -31,9 +34,9 @@
       </thead>
       <tbody>
         <?php 
-        if($all_ambulances!=''){
+        if($all_ambulances!='' && $all_ambulances['status']=='200'){
           $count=1;
-          foreach ($all_ambulances as $key) {            
+          foreach ($all_ambulances['status_message'] as $key) {            
             ?>
             <tr>
               <td><?php echo $count; ?></td>

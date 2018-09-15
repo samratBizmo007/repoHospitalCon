@@ -91,4 +91,21 @@ class Doctor_model extends CI_Model {
         }
         return $response;
     }
+
+    // get all doctor for home
+    public function getAllDoctorsHome() {
+        $sql = "SELECT * FROM doctor_tab as d JOIN hospital_tab as t on (d.hosp_id = t.hosp_id)";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            $response = array(
+                'status' => 500,
+                'status_message' => 'No data found.');
+        } else {
+            $response = array(
+                'status' => 200,
+                'status_message' => $result->result_array());
+        }
+        return $response;
+    }
+
 }
