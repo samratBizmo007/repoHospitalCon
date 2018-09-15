@@ -12,14 +12,13 @@
         <div id="message"></div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <!-- Div for Doctors-->
+            <!-- Div for Hospital-->
 
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <?php
                 if ($hospitals == '') {
-                    // echo 'No Doctors Found';
+                     echo 'No Hospital Found';
                 } else {
-                   // print_r($doctors);
                     foreach ($hospitals as $key) {            
                 ?>
                     <h2><b><?php echo $key['hosp_name']; ?></b></h2>
@@ -31,17 +30,29 @@
                 }
             }
                 ?>
-            </div><!-- Div for Doctors-->
+                <?php
+                 if($ambulance!=''){
+              $count=1;
+              foreach ($ambulance as $key) {            
+                ?>
+            <h4><b><i class="fa fa-ambulance" aria-hidden="true"> Ambulance Quantity : </i></b><font color="red"><?php echo $key['ambulance_quantity']; ?></font></h4>
+          </div>
+          <?php 
+             }
+             }
+             else{ 
+              ?>
+              <h4><b><i class="fa fa-ambulance" aria-hidden="true"> Ambulance Quantity : </i></b><font color="red"><?php echo "N/A"; ?></font></h4>
+        <?php
+             }
+
+          ?>
+            </div><!-- Div for Hospital-->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <!-- Div for Blood-->
+            <!-- Div for doctor-->
             <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-                 <?php
-                if ($blood == '') {
-                    // echo 'No Blood Found';
-                } else {
-                    //print_r($blood);
-                }
-                ?> 
+
+                 
                 <h3>Doctors List</h3>
                  <table class="table table-striped table-bordered">
           <thead>
@@ -71,7 +82,7 @@
               ?>
               <tr>
                 <td colspan="8" class="w3-center">
-                  <span> No Blood Group Found </span>
+                  <span> No Doctors Found </span>
                 </td>              
               </tr>
               <?php
@@ -79,17 +90,11 @@
             ?>
           </tbody>
         </table>
-            </div><!-- Div for Blood-->
+            </div><!-- Div for Doctor-->
             
-            <!-- Div for Organs-->
+            <!-- Div for Blood-->
             <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-                <?php
-                if ($organs == '') {
-                    // echo 'No Organ Found';
-                } else {
-                  //  print_r($organs);
-                }
-                ?>
+               
                 <h3>Blood Available</h3>
                  <table class="table table-striped table-bordered">
           <thead>
@@ -125,17 +130,11 @@
             ?>
           </tbody>
         </table>
-            </div><!-- Div for Organs-->
+            </div><!-- Div for Blood-->
             
-            <!-- Div for Ambulance-->
+            <!-- Div for Organs-->
             <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-                <?php
-                if ($organs == '') {
-                    // echo 'No Organs Found';
-                } else {
-                    // print_r($ambulance);
-                }
-                ?>      <h3>Organs</h3>
+                    <h3>Organs</h3>
                  <table class="table table-striped table-bordered">
           <thead>
             <tr>
@@ -162,7 +161,7 @@
               ?>
               <tr>
                 <td colspan="8" class="w3-center">
-                  <span> No Blood Group Found </span>
+                  <span> No Organs Found </span>
                 </td>              
               </tr>
               <?php
@@ -170,8 +169,11 @@
             ?>
           </tbody>
         </table>
-            </div><!-- Div for Ambulance-->
+            </div><!-- Div for Organs-->
             </div>
+            
+           <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                
         </div>
     </div>
     <!-- Main Div Ends Here-->
