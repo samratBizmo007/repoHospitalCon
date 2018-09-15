@@ -75,4 +75,21 @@ class Organ_model extends CI_Model {
     }
 
 //--------------------fun for delete organ details ----------------------------------//
+
+
+    // get organ records on filter
+    public function filterOrgan($query_string){
+        $sql="SELECT * FROM hospital_tab, organ_tab WHERE organ_tab.hosp_id=hospital_tab.hosp_id AND hospital_tab.hosp_location LIKE '$query_string%' OR hospital_tab.hosp_name LIKE '$query_string%' OR organ_tab.organ_name LIKE '$query_string%' ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            $response = array(
+                'status' => 500,
+                'status_message' => 'No data found.');
+        } else {
+            $response = array(
+                'status' => 200,
+                'status_message' => $result->result_array());
+        }
+        return $response;
+    }
 }

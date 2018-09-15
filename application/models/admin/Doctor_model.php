@@ -75,4 +75,20 @@ class Doctor_model extends CI_Model {
     }
 
 //-------------------fun for Delete doctor details -----------------------------------//
+
+    // get doctors records on filter
+    public function filterDoctor($query_string){
+        $sql="SELECT * FROM hospital_tab, doctor_tab WHERE doctor_tab.hosp_id=hospital_tab.hosp_id AND hospital_tab.hosp_location LIKE '$query_string%' OR doctor_tab.doc_name LIKE '$query_string%' OR doctor_tab.doc_degree LIKE '$query_string%' OR doctor_tab.doc_gender LIKE '$query_string%'";
+        $result = $this->db->query($sql);
+        if ($result->num_rows() <= 0) {
+            $response = array(
+                'status' => 500,
+                'status_message' => 'No data found.');
+        } else {
+            $response = array(
+                'status' => 200,
+                'status_message' => $result->result_array());
+        }
+        return $response;
+    }
 }
