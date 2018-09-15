@@ -35,14 +35,14 @@
               $count=1;
               foreach ($ambulance as $key) {            
                 ?>
-            <h4><b><i class="fa fa-ambulance" aria-hidden="true"> Ambulance Quantity : </i></b><font color="red"><?php echo $key['ambulance_quantity']; ?></font></h4>
+            <h4><b><i class="fa fa-ambulance" aria-hidden="true"></i></b> <font color="red"><?php echo $key['ambulance_quantity']; ?></font></h4>
           </div>
           <?php 
              }
              }
              else{ 
               ?>
-              <h4><b><i class="fa fa-ambulance" aria-hidden="true"> Ambulance Quantity : </i></b><font color="red"><?php echo "N/A"; ?></font></h4>
+              <h4><b><i class="fa fa-ambulance" aria-hidden="true"></i></b> <font color="red"><?php echo "N/A"; ?></font></h4>
         <?php
              }
 
